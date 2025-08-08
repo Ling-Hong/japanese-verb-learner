@@ -26,7 +26,7 @@ export const masterVerbList: Verb[] = [
   { dictionary: '分ける', meaning: 'to divide', type: 'ichidan', difficultyLevel: 'medium' },
   { dictionary: '比べる', meaning: 'to compare', type: 'ichidan', difficultyLevel: 'hard' },
   { dictionary: '調べる', meaning: 'to investigate', type: 'ichidan', difficultyLevel: 'hard' },
-  { dictionary: '選ぶ', meaning: 'to choose', type: 'ichidan', difficultyLevel: 'hard' },
+  { dictionary: '選ぶ', meaning: 'to choose', type: 'godan', difficultyLevel: 'hard' },
   { dictionary: '表す', meaning: 'to express', type: 'ichidan', difficultyLevel: 'hard' },
   { dictionary: '現れる', meaning: 'to appear', type: 'ichidan', difficultyLevel: 'hard' },
   { dictionary: '消える', meaning: 'to disappear', type: 'ichidan', difficultyLevel: 'hard' },
