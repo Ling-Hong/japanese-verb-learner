@@ -42,21 +42,22 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
 
   useEffect(() => {
     if (currentDayData) {
-      // Select 15 words for this specific day
-      const selectedVerbs = masteryTracker.selectVerbsForCycle(progress.cycleNumber)
-      const dayStartIndex = (progress.currentDay - 1) * 15
-      const dayEndIndex = dayStartIndex + 15
-      const wordsForDay = selectedVerbs.slice(dayStartIndex, dayEndIndex)
+      // Select words specifically for this day (not slicing from a small set)
+      const wordsForDay = masteryTracker.selectVerbsForCycle(progress.cycleNumber, 10) // 10 words per day
       
       setDayWords(wordsForDay)
       setCurrentWordIndex(0)
       setDailyProgress(0)
       setSessionStartTime(new Date())
+      setShowDrill(false)
+      setDrillResults({})
       
       // Load the first word
       if (wordsForDay.length > 0) {
         setCurrentVerb(wordsForDay[0])
         setCurrentFormIndex(0)
+        setUserAnswer('')
+        setIsCorrect(null)
         if (currentDayData.forms.length > 0) {
           setCurrentForm(currentDayData.forms[0])
         }
@@ -160,7 +161,16 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
         currentDay: nextDayData.day,
         currentWeek: nextDayData.day <= 7 ? 1 : 2
       }))
-      setDailyProgress(0) // Reset daily progress for new day
+      
+      // Reset all states for the new day
+      setDailyProgress(0)
+      setCurrentWordIndex(0)
+      setShowDrill(false)
+      setDrillResults({})
+      setUserAnswer('')
+      setIsCorrect(null)
+      setCurrentFormIndex(0)
+      setSessionStartTime(new Date())
     }
   }
 
@@ -171,7 +181,16 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
         currentDay: previousDayData.day,
         currentWeek: previousDayData.day <= 7 ? 1 : 2
       }))
-      setDailyProgress(0) // Reset daily progress for new day
+      
+      // Reset all states for the new day
+      setDailyProgress(0)
+      setCurrentWordIndex(0)
+      setShowDrill(false)
+      setDrillResults({})
+      setUserAnswer('')
+      setIsCorrect(null)
+      setCurrentFormIndex(0)
+      setSessionStartTime(new Date())
     }
   }
 

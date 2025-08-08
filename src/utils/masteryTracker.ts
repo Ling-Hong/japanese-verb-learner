@@ -117,7 +117,13 @@ export class MasteryTracker {
   // Select verbs for a new cycle based on mastery scores
   selectVerbsForCycle(cycleNumber: number, targetCount: number = 15): Verb[] {
     const allVerbs = [...masterVerbList]
-    const selectedVerbs: Verb[] = []
+    
+    // Create a simple seeded random function for consistent but varied selection
+    const seed = cycleNumber + Date.now() + Math.random() * 1000
+    const seededRandom = () => {
+      const x = Math.sin(seed) * 10000
+      return x - Math.floor(x)
+    }
     
     // Priority 1: Verbs with low mastery scores (0-30)
     const lowMasteryVerbs = allVerbs.filter(verb => {
@@ -146,7 +152,7 @@ export class MasteryTracker {
       return mastery.masteryScore > 70
     })
     
-    // Combine and select
+    // Combine and shuffle for variety
     const priorityList = [
       ...lowMasteryVerbs,
       ...notRecentlyPracticed,
@@ -154,20 +160,24 @@ export class MasteryTracker {
       ...remainingVerbs
     ]
     
-    // Remove duplicates and select
+    // Remove duplicates
     const uniqueVerbs = priorityList.filter((verb, index, array) => 
       array.findIndex(v => v.dictionary === verb.dictionary) === index
     )
     
-    // Select target count, ensuring variety
-    const easyVerbs = uniqueVerbs.filter(v => v.difficultyLevel === 'easy')
-    const mediumVerbs = uniqueVerbs.filter(v => v.difficultyLevel === 'medium')
-    const hardVerbs = uniqueVerbs.filter(v => v.difficultyLevel === 'hard')
+    // Shuffle the verbs for variety each time
+    const shuffledVerbs = [...uniqueVerbs].sort(() => Math.random() - 0.5)
     
-    // Distribute by difficulty
-    const easyCount = Math.min(5, easyVerbs.length)
-    const mediumCount = Math.min(7, mediumVerbs.length)
-    const hardCount = Math.min(3, hardVerbs.length)
+    // Select target count, ensuring variety by difficulty
+    const selectedVerbs: Verb[] = []
+    const easyVerbs = shuffledVerbs.filter(v => v.difficultyLevel === 'easy')
+    const mediumVerbs = shuffledVerbs.filter(v => v.difficultyLevel === 'medium')
+    const hardVerbs = shuffledVerbs.filter(v => v.difficultyLevel === 'hard')
+    
+    // Distribute by difficulty (adjust ratios for better balance)
+    const easyCount = Math.min(Math.ceil(targetCount * 0.4), easyVerbs.length)
+    const mediumCount = Math.min(Math.ceil(targetCount * 0.4), mediumVerbs.length)
+    const hardCount = Math.min(Math.ceil(targetCount * 0.2), hardVerbs.length)
     
     selectedVerbs.push(
       ...easyVerbs.slice(0, easyCount),
@@ -175,16 +185,17 @@ export class MasteryTracker {
       ...hardVerbs.slice(0, hardCount)
     )
     
-    // Fill remaining slots with random selection
+    // Fill remaining slots with any available verbs
     const remainingSlots = targetCount - selectedVerbs.length
     if (remainingSlots > 0) {
-      const remainingVerbs = uniqueVerbs.filter(verb => 
+      const remainingVerbs = shuffledVerbs.filter(verb => 
         !selectedVerbs.some(selected => selected.dictionary === verb.dictionary)
       )
       selectedVerbs.push(...remainingVerbs.slice(0, remainingSlots))
     }
     
-    return selectedVerbs.slice(0, targetCount)
+    // Final shuffle for randomness
+    return selectedVerbs.sort(() => Math.random() - 0.5).slice(0, targetCount)
   }
 
   // Generate worksheet for a specific day
