@@ -32,7 +32,9 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
   const [showDrill, setShowDrill] = useState(false)
   const [drillResults, setDrillResults] = useState<{ [key: string]: boolean }>({})
   const [showProgress, setShowProgress] = useState(false)
-  const [dailyProgress, setDailyProgress] = useState(0) // Track daily progress (forms completed)
+  const [dailyProgress, setDailyProgress] = useState(0) // Track daily progress (words completed)
+  const [currentWordIndex, setCurrentWordIndex] = useState(0) // Track current word (0-9 for 10 words per day)
+  const [dayWords, setDayWords] = useState<Verb[]>([]) // 10 words for the current day
 
   const currentDayData = getCurrentDay(progress)
   const nextDayData = getNextDay(progress)
@@ -40,25 +42,32 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
 
   useEffect(() => {
     if (currentDayData) {
-      // Initialize cycle with selected verbs if not already done
-      if (progress.selectedVerbs.length === 0) {
-        const selectedVerbs = masteryTracker.selectVerbsForCycle(progress.cycleNumber)
-        setProgress(prev => ({
-          ...prev,
-          selectedVerbs
-        }))
-      }
+      // Select 10 words for this specific day
+      const selectedVerbs = masteryTracker.selectVerbsForCycle(progress.cycleNumber)
+      const dayStartIndex = (progress.currentDay - 1) * 10
+      const dayEndIndex = dayStartIndex + 10
+      const wordsForDay = selectedVerbs.slice(dayStartIndex, dayEndIndex)
       
-      loadNewVerb()
-      setDailyProgress(0) // Reset daily progress for new day
+      setDayWords(wordsForDay)
+      setCurrentWordIndex(0)
+      setDailyProgress(0)
       setSessionStartTime(new Date())
+      
+      // Load the first word
+      if (wordsForDay.length > 0) {
+        setCurrentVerb(wordsForDay[0])
+        setCurrentFormIndex(0)
+        if (currentDayData.forms.length > 0) {
+          setCurrentForm(currentDayData.forms[0])
+        }
+      }
     }
-  }, [currentDayData, progress.selectedVerbs.length, progress.cycleNumber])
+  }, [currentDayData, progress.currentDay, progress.cycleNumber])
 
   const loadNewVerb = () => {
-    const verb = progress.selectedVerbs.length > 0 
-      ? progress.selectedVerbs[Math.floor(Math.random() * progress.selectedVerbs.length)]
-      : getRandomVerb()
+    if (dayWords.length === 0) return
+    
+    const verb = dayWords[currentWordIndex]
     setCurrentVerb(verb)
     setUserAnswer('')
     setIsCorrect(null)
@@ -82,11 +91,9 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
       [`${currentVerb.dictionary}-${currentForm}`]: isAnswerCorrect
     }))
 
-    // Update daily progress
-    setDailyProgress(prev => prev + 1)
-
-    // Move to next form or complete drill
+    // Move to next form or next word
     if (currentFormIndex < currentDayData.forms.length - 1) {
+      // Move to next form for current word
       setTimeout(() => {
         setCurrentFormIndex(prev => prev + 1)
         setCurrentForm(currentDayData.forms[currentFormIndex + 1])
@@ -94,29 +101,52 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
         setIsCorrect(null)
       }, 2000)
     } else {
-      // Drill completed - automatically mark day as completed
-      const sessionTime = sessionStartTime ? Math.floor((Date.now() - sessionStartTime.getTime()) / 1000) : 0
-      const dayScore = Object.values(drillResults).filter(Boolean).length + (isAnswerCorrect ? 1 : 0)
-      
-      setProgress(prev => ({
-        ...prev,
-        completedDays: [...prev.completedDays, prev.currentDay],
-        scores: { ...prev.scores, [prev.currentDay]: dayScore },
-        timeRecords: { ...prev.timeRecords, [prev.currentDay]: sessionTime }
-      }))
-      
-      setTimeout(() => {
-        setShowDrill(true)
-      }, 2000)
+      // Completed all forms for current word
+      if (currentWordIndex < dayWords.length - 1) {
+        // Move to next word
+        setTimeout(() => {
+          setCurrentWordIndex(prev => prev + 1)
+          setDailyProgress(prev => prev + 1)
+          setCurrentFormIndex(0)
+          setCurrentForm(currentDayData.forms[0])
+          setUserAnswer('')
+          setIsCorrect(null)
+        }, 2000)
+      } else {
+        // Completed all words for the day
+        const sessionTime = sessionStartTime ? Math.floor((Date.now() - sessionStartTime.getTime()) / 1000) : 0
+        const dayScore = Object.values(drillResults).filter(Boolean).length + (isAnswerCorrect ? 1 : 0)
+        
+        setProgress(prev => ({
+          ...prev,
+          completedDays: [...prev.completedDays, prev.currentDay],
+          scores: { ...prev.scores, [prev.currentDay]: dayScore },
+          timeRecords: { ...prev.timeRecords, [prev.currentDay]: sessionTime }
+        }))
+        
+        setTimeout(() => {
+          setShowDrill(true)
+        }, 2000)
+      }
     }
   }
 
   const handleNextVerb = () => {
-    loadNewVerb()
+    // Reset to start of current day
+    setCurrentWordIndex(0)
+    setDailyProgress(0)
     setDrillResults({})
     setShowDrill(false)
-    setDailyProgress(0) // Reset daily progress for new practice session
-    setSessionStartTime(new Date()) // Reset session timer for new practice
+    setSessionStartTime(new Date())
+    
+    // Load first word of the day
+    if (dayWords.length > 0) {
+      setCurrentVerb(dayWords[0])
+      setCurrentFormIndex(0)
+      if (currentDayData && currentDayData.forms.length > 0) {
+        setCurrentForm(currentDayData.forms[0])
+      }
+    }
   }
 
 
@@ -212,12 +242,12 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
           <div>
             <div className="flex justify-between text-sm text-gray-600 mb-2">
               <span>Today's Progress</span>
-              <span>{dailyProgress} / {currentDayData.forms.length} forms</span>
+              <span>{dailyProgress} / {dayWords.length} words</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
               <div 
                 className="bg-green-600 h-2 rounded-full transition-all duration-300"
-                style={{ width: `${(dailyProgress / currentDayData.forms.length) * 100}%` }}
+                style={{ width: `${(dailyProgress / dayWords.length) * 100}%` }}
               ></div>
             </div>
           </div>
@@ -228,7 +258,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
           <h3 className="font-semibold text-blue-800 mb-2">Today's Focus</h3>
           <p className="text-blue-700 mb-2">{currentDayData.description}</p>
           <div className="text-sm text-blue-600">
-            <strong>Forms to Practice:</strong> {currentDayData.forms.length} conjugation forms
+            <strong>Words to Practice:</strong> {dayWords.length} words × {currentDayData.forms.length} forms each
           </div>
           <div className="text-sm text-blue-600">
             <strong>Drill Pattern:</strong> {currentDayData.drillPattern}
@@ -251,7 +281,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
             </div>
             <p className="text-gray-600">{currentVerb.meaning}</p>
             <div className="text-sm text-gray-500 mt-2">
-              Form {currentFormIndex + 1} of {currentDayData.forms.length}
+              Word {currentWordIndex + 1} of {dayWords.length} • Form {currentFormIndex + 1} of {currentDayData.forms.length}
             </div>
           </div>
 
