@@ -275,31 +275,55 @@ const conjugationRules = {
     masu: (verb: string) => {
       if (verb === 'する') return 'します'
       if (verb === '来る') return '来ます'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'します'
+      }
       return verb + 'ます'
     },
     masu_past: (verb: string) => {
       if (verb === 'する') return 'しました'
       if (verb === '来る') return '来ました'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'しました'
+      }
       return verb + 'ました'
     },
     ta: (verb: string) => {
       if (verb === 'する') return 'した'
       if (verb === '来る') return '来た'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'した'
+      }
       return verb + 'た'
     },
     te: (verb: string) => {
       if (verb === 'する') return 'して'
       if (verb === '来る') return '来て'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'して'
+      }
       return verb + 'て'
     },
     nai: (verb: string) => {
       if (verb === 'する') return 'しない'
       if (verb === '来る') return '来ない'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'しない'
+      }
       return verb + 'ない'
     },
     nai_past: (verb: string) => {
       if (verb === 'する') return 'しなかった'
       if (verb === '来る') return '来なかった'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'しなかった'
+      }
       return verb + 'なかった'
     },
     te_iru: (verb: string) => {
@@ -309,31 +333,55 @@ const conjugationRules = {
     potential: (verb: string) => {
       if (verb === 'する') return 'できる'
       if (verb === '来る') return '来られる'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'できる'
+      }
       return verb + 'られる'
     },
     volitional: (verb: string) => {
       if (verb === 'する') return 'しよう'
       if (verb === '来る') return '来よう'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'しよう'
+      }
       return verb + 'よう'
     },
     passive: (verb: string) => {
       if (verb === 'する') return 'される'
       if (verb === '来る') return '来られる'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'される'
+      }
       return verb + 'られる'
     },
     causative: (verb: string) => {
       if (verb === 'する') return 'させる'
       if (verb === '来る') return '来させる'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'させる'
+      }
       return verb + 'させる'
     },
     causative_passive: (verb: string) => {
       if (verb === 'する') return 'させられる'
       if (verb === '来る') return '来させられる'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'させられる'
+      }
       return verb + 'させられる'
     },
     imperative: (verb: string) => {
       if (verb === 'する') return 'しろ'
       if (verb === '来る') return '来い'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'しろ'
+      }
       return verb + 'ろ'
     },
     prohibitive: (verb: string) => verb + 'な',
@@ -344,6 +392,10 @@ const conjugationRules = {
     conditional_ba: (verb: string) => {
       if (verb === 'する') return 'すれば'
       if (verb === '来る') return '来れば'
+      if (verb.endsWith('する')) {
+        const stem = verb.slice(0, -2) // Remove 'する'
+        return stem + 'すれば'
+      }
       return verb + 'れば'
     },
     conjectural: (verb: string) => verb + 'だろう',
