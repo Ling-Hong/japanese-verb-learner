@@ -32,6 +32,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
   const [showDrill, setShowDrill] = useState(false)
   const [drillResults, setDrillResults] = useState<{ [key: string]: boolean }>({})
   const [showProgress, setShowProgress] = useState(false)
+  const [dailyProgress, setDailyProgress] = useState(0) // Track daily progress (forms completed)
 
   const currentDayData = getCurrentDay(progress)
   const nextDayData = getNextDay(progress)
@@ -49,6 +50,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
       }
       
       loadNewVerb()
+      setDailyProgress(0) // Reset daily progress for new day
       setSessionStartTime(new Date())
     }
   }, [currentDayData, progress.selectedVerbs.length, progress.cycleNumber])
@@ -80,6 +82,9 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
       [`${currentVerb.dictionary}-${currentForm}`]: isAnswerCorrect
     }))
 
+    // Update daily progress
+    setDailyProgress(prev => prev + 1)
+
     // Move to next form or complete drill
     if (currentFormIndex < currentDayData.forms.length - 1) {
       setTimeout(() => {
@@ -110,6 +115,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
     loadNewVerb()
     setDrillResults({})
     setShowDrill(false)
+    setDailyProgress(0) // Reset daily progress for new practice session
     setSessionStartTime(new Date()) // Reset session timer for new practice
   }
 
@@ -122,6 +128,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
         currentDay: nextDayData.day,
         currentWeek: nextDayData.day <= 7 ? 1 : 2
       }))
+      setDailyProgress(0) // Reset daily progress for new day
     }
   }
 
@@ -132,6 +139,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
         currentDay: previousDayData.day,
         currentWeek: previousDayData.day <= 7 ? 1 : 2
       }))
+      setDailyProgress(0) // Reset daily progress for new day
     }
   }
 
@@ -171,9 +179,11 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
           <div className="flex items-center space-x-4">
             <button
               onClick={() => setShowProgress(true)}
-              className="text-blue-600 hover:text-blue-800 transition-colors"
+              className="text-blue-600 hover:text-blue-800 transition-colors flex items-center space-x-2"
             >
-              📊 Progress
+              <span>📊</span>
+              <span>Progress: {getProgressPercentage()}%</span>
+              <span className="text-xs">({progress.completedDays.length}/14 days)</span>
             </button>
             <div className="text-right">
               <div className="text-sm text-gray-600">Week {progress.currentWeek}, Day {progress.currentDay}</div>
@@ -182,17 +192,34 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
           </div>
         </div>
         
-        {/* Progress Bar */}
-        <div className="mb-4">
-          <div className="flex justify-between text-sm text-gray-600 mb-2">
-            <span>Overall Progress</span>
-            <span>{getProgressPercentage()}%</span>
+        {/* Progress Bars */}
+        <div className="mb-4 space-y-3">
+          {/* Overall Progress */}
+          <div>
+            <div className="flex justify-between text-sm text-gray-600 mb-2">
+              <span>Overall Progress</span>
+              <span>{getProgressPercentage()}%</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div 
+                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                style={{ width: `${getProgressPercentage()}%` }}
+              ></div>
+            </div>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div 
-              className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-              style={{ width: `${getProgressPercentage()}%` }}
-            ></div>
+          
+          {/* Daily Progress */}
+          <div>
+            <div className="flex justify-between text-sm text-gray-600 mb-2">
+              <span>Today's Progress</span>
+              <span>{dailyProgress} / {currentDayData.forms.length} forms</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div 
+                className="bg-green-600 h-2 rounded-full transition-all duration-300"
+                style={{ width: `${(dailyProgress / currentDayData.forms.length) * 100}%` }}
+              ></div>
+            </div>
           </div>
         </div>
 
@@ -200,6 +227,9 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
         <div className="bg-blue-50 p-4 rounded-lg">
           <h3 className="font-semibold text-blue-800 mb-2">Today's Focus</h3>
           <p className="text-blue-700 mb-2">{currentDayData.description}</p>
+          <div className="text-sm text-blue-600">
+            <strong>Forms to Practice:</strong> {currentDayData.forms.length} conjugation forms
+          </div>
           <div className="text-sm text-blue-600">
             <strong>Drill Pattern:</strong> {currentDayData.drillPattern}
           </div>
