@@ -37,6 +37,25 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## 🚀 Sharing with Friends
+
+Want to share this app with friends? Check out our [Deployment Guide](DEPLOYMENT.md) for easy deployment options!
+
+### Quick Deploy (Recommended):
+```bash
+# Deploy to Vercel (free hosting)
+vercel
+
+# Share the URL with friends!
+```
+
+### Local Sharing:
+```bash
+# Share on your local network
+npm run dev
+# Share: http://YOUR_IP_ADDRESS:3000
+```
+
 ## Project Structure
 
 ```
