@@ -14,7 +14,7 @@ export default function Home() {
   if (currentMode === 'structured') {
     return (
       <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-        <Header />
+        <Header onHomeClick={() => setCurrentMode('menu')} onProgressClick={() => setCurrentMode('mastery')} />
         <div className="container mx-auto px-4 py-8">
           <StructuredStudy onBack={() => setCurrentMode('menu')} />
         </div>
@@ -25,7 +25,7 @@ export default function Home() {
   if (currentMode === 'mastery') {
     return (
       <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-        <Header />
+        <Header onHomeClick={() => setCurrentMode('menu')} onProgressClick={() => setCurrentMode('mastery')} />
         <div className="container mx-auto px-4 py-8">
           <MasteryDashboard onClose={() => setCurrentMode('menu')} />
         </div>
@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <Header />
+      <Header onHomeClick={() => setCurrentMode('menu')} onProgressClick={() => setCurrentMode('mastery')} />
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">

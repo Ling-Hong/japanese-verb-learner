@@ -1,4 +1,9 @@
-export default function Header() {
+interface HeaderProps {
+  onHomeClick?: () => void
+  onProgressClick?: () => void
+}
+
+export default function Header({ onHomeClick, onProgressClick }: HeaderProps) {
   return (
     <header className="bg-white shadow-sm border-b">
       <div className="container mx-auto px-4 py-4">
@@ -12,12 +17,18 @@ export default function Header() {
             </h1>
           </div>
           <nav className="hidden md:flex space-x-6">
-            <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+            <button 
+              onClick={onHomeClick}
+              className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+            >
               Home
-            </a>
-            <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+            </button>
+            <button 
+              onClick={onProgressClick}
+              className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+            >
               Progress
-            </a>
+            </button>
             <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
               About
             </a>
