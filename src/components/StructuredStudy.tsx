@@ -12,16 +12,38 @@ interface StructuredStudyProps {
 }
 
 export default function StructuredStudy({ onBack }: StructuredStudyProps) {
-  const [progress, setProgress] = useState<StudyProgress>({
-    currentDay: 1,
-    currentWeek: 1,
-    cycleStartDate: new Date(),
-    completedDays: [],
-    scores: {},
-    timeRecords: {},
-    cycleNumber: 1,
-    selectedVerbs: []
-  })
+  const [progress, setProgress] = useState<StudyProgress>(() => {
+    if (typeof window !== 'undefined') {
+      const savedProgress = localStorage.getItem('japanese_verb_progress');
+      if (savedProgress) {
+        try {
+          const parsed = JSON.parse(savedProgress);
+          if (parsed.cycleStartDate) {
+            parsed.cycleStartDate = new Date(parsed.cycleStartDate);
+          }
+          return parsed;
+        } catch (e) {
+          console.error('Failed to parse progress from localStorage', e);
+        }
+      }
+    }
+    return {
+      currentDay: 1,
+      currentWeek: 1,
+      cycleStartDate: new Date(),
+      completedDays: [],
+      scores: {},
+      timeRecords: {},
+      cycleNumber: 1,
+      selectedVerbs: []
+    };
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('japanese_verb_progress', JSON.stringify(progress));
+    }
+  }, [progress]);
   
   const [currentVerb, setCurrentVerb] = useState<Verb | null>(null)
   const [currentForm, setCurrentForm] = useState<ConjugationType>('masu')
@@ -79,60 +101,64 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
   }
 
   const handleSubmit = () => {
-    if (!currentVerb || !currentDayData) return
+    if (!currentVerb || !currentDayData) return;
 
-    const correctAnswer = conjugateVerb(currentVerb, currentForm)
-    const isAnswerCorrect = userAnswer.trim().toLowerCase() === correctAnswer.toLowerCase()
+    const correctAnswer = conjugateVerb(currentVerb, currentForm);
+    const isAnswerCorrect = userAnswer.trim().toLowerCase() === correctAnswer.toLowerCase();
     
-    setIsCorrect(isAnswerCorrect)
+    setIsCorrect(isAnswerCorrect);
     
     // Update drill results
     setDrillResults(prev => ({
       ...prev,
       [`${currentVerb.dictionary}-${currentForm}`]: isAnswerCorrect
-    }))
+    }));
 
-    // Move to next form or next word
+    // Check if there are more forms for the current word
     if (currentFormIndex < currentDayData.forms.length - 1) {
-      // Move to next form for current word
+      // Move to the next form for the CURRENT word
       setTimeout(() => {
-        setCurrentFormIndex(prev => prev + 1)
-        setCurrentForm(currentDayData.forms[currentFormIndex + 1])
-        setUserAnswer('')
-        setIsCorrect(null)
-      }, 2000)
+        setCurrentFormIndex(prev => prev + 1);
+        setCurrentForm(currentDayData.forms[currentFormIndex + 1]);
+        setUserAnswer('');
+        setIsCorrect(null);
+      }, 2000);
     } else {
-      // Completed all forms for current word
+      // All forms for the current word are completed. Increment progress.
+      setDailyProgress(prev => prev + 1);
+
+      // Check if there are more words in the day
       if (currentWordIndex < dayWords.length - 1) {
-        // Move to next word
+        // Move to the NEXT word
         setTimeout(() => {
-          const nextWordIndex = currentWordIndex + 1
-          setCurrentWordIndex(nextWordIndex)
-          setCurrentVerb(dayWords[nextWordIndex])
-          setDailyProgress(prev => prev + 1)
-          setCurrentFormIndex(0)
-          setCurrentForm(currentDayData.forms[0])
-          setUserAnswer('')
-          setIsCorrect(null)
-        }, 2000)
+          const nextWordIndex = currentWordIndex + 1;
+          setCurrentWordIndex(nextWordIndex);
+          setCurrentVerb(dayWords[nextWordIndex]);
+          setCurrentFormIndex(0); // Reset form index for the new word
+          if (currentDayData.forms.length > 0) {
+            setCurrentForm(currentDayData.forms[0]);
+          }
+          setUserAnswer('');
+          setIsCorrect(null);
+        }, 2000);
       } else {
-        // Completed all words for the day
-        const sessionTime = sessionStartTime ? Math.floor((Date.now() - sessionStartTime.getTime()) / 1000) : 0
-        const dayScore = Object.values(drillResults).filter(Boolean).length + (isAnswerCorrect ? 1 : 0)
+        // This was the last word of the day
+        const sessionTime = sessionStartTime ? Math.floor((Date.now() - sessionStartTime.getTime()) / 1000) : 0;
+        const dayScore = Object.values(drillResults).filter(Boolean).length;
         
         setProgress(prev => ({
           ...prev,
           completedDays: [...prev.completedDays, prev.currentDay],
           scores: { ...prev.scores, [prev.currentDay]: dayScore },
           timeRecords: { ...prev.timeRecords, [prev.currentDay]: sessionTime }
-        }))
+        }));
         
         setTimeout(() => {
-          setShowDrill(true)
-        }, 2000)
+          setShowDrill(true);
+        }, 2000);
       }
     }
-  }
+  };
 
   const handleNextVerb = () => {
     // Reset to start of current day

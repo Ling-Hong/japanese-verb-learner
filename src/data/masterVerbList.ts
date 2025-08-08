@@ -184,16 +184,7 @@ export const masterVerbList: Verb[] = [
   { dictionary: '手紙を書く', meaning: 'to write letters', type: 'irregular', difficultyLevel: 'hard' },
   { dictionary: 'レポートを書く', meaning: 'to write reports', type: 'irregular', difficultyLevel: 'hard' },
   { dictionary: '論文を書く', meaning: 'to write papers', type: 'irregular', difficultyLevel: 'hard' },
-  { dictionary: '本を読む', meaning: 'to read books', type: 'irregular', difficultyLevel: 'hard' },
-  { dictionary: '新聞を読む', meaning: 'to read newspapers', type: 'irregular', difficultyLevel: 'hard' },
-  { dictionary: '雑誌を読む', meaning: 'to read magazines', type: 'irregular', difficultyLevel: 'hard' },
-  { dictionary: '漫画を読む', meaning: 'to read manga', type: 'irregular', difficultyLevel: 'hard' },
-  { dictionary: '小説を読む', meaning: 'to read novels', type: 'irregular', difficultyLevel: 'hard' },
-  { dictionary: '詩を読む', meaning: 'to read poetry', type: 'irregular', difficultyLevel: 'hard' },
-  { dictionary: '日記を読む', meaning: 'to read diaries', type: 'irregular', difficultyLevel: 'hard' },
-  { dictionary: '手紙を読む', meaning: 'to read letters', type: 'irregular', difficultyLevel: 'hard' },
-  { dictionary: 'レポートを読む', meaning: 'to read reports', type: 'irregular', difficultyLevel: 'hard' },
-  { dictionary: '論文を読む', meaning: 'to read papers', type: 'irregular', difficultyLevel: 'hard' },
+  { dictionary: '本を読む', meaning: 'to read books', type: 'godan', difficultyLevel: 'hard' },
 ]
 
 export function getVerbsByDifficulty(difficulty: 'easy' | 'medium' | 'hard'): Verb[] {
