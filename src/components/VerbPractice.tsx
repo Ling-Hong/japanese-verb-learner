@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { getRandomVerb, conjugateVerb } from '@/utils/verbUtils'
+import { getRandomVerb, conjugateVerb, getConjugationDisplayName } from '@/utils/verbUtils'
 import { Verb, ConjugationType } from '@/types/verb'
 
 interface VerbPracticeProps {
@@ -10,7 +10,7 @@ interface VerbPracticeProps {
 
 export default function VerbPractice({ mode }: VerbPracticeProps) {
   const [currentVerb, setCurrentVerb] = useState<Verb | null>(null)
-  const [conjugationType, setConjugationType] = useState<ConjugationType>('masu')
+  const [conjugationType, setConjugationType] = useState<ConjugationType>('dictionary')
   const [userAnswer, setUserAnswer] = useState('')
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
   const [score, setScore] = useState(0)
@@ -88,7 +88,7 @@ export default function VerbPractice({ mode }: VerbPracticeProps) {
         <div className="bg-gray-50 p-6 rounded-lg mb-6">
           <div className="text-center mb-4">
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
-              Conjugate this verb to {conjugationType} form:
+              Conjugate this verb to {getConjugationDisplayName(conjugationType)}:
             </h3>
             <div className="text-3xl font-bold text-blue-600 mb-2">
               {currentVerb.dictionary}
@@ -107,10 +107,27 @@ export default function VerbPractice({ mode }: VerbPracticeProps) {
                 onChange={(e) => setConjugationType(e.target.value as ConjugationType)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="masu">ます形 (Polite)</option>
+                <option value="dictionary">基本形 (Dictionary)</option>
+                <option value="masu">ます形 (Polite Present)</option>
+                <option value="masu_past">ました (Polite Past)</option>
+                <option value="ta">た形 (Plain Past)</option>
                 <option value="te">て形 (Te-form)</option>
-                <option value="ta">た形 (Past)</option>
-                <option value="nai">ない形 (Negative)</option>
+                <option value="nai">ない形 (Negative Present)</option>
+                <option value="nai_past">なかった (Negative Past)</option>
+                <option value="te_iru">〜ている (Progressive)</option>
+                <option value="potential">可能形 (Potential)</option>
+                <option value="volitional">意向形 (Volitional)</option>
+                <option value="passive">受け身形 (Passive)</option>
+                <option value="causative">使役形 (Causative)</option>
+                <option value="causative_passive">使役受け身形 (Causative-Passive)</option>
+                <option value="imperative">命令形 (Imperative)</option>
+                <option value="prohibitive">〜な (Prohibitive)</option>
+                <option value="conditional_tara">〜たら (Conditional)</option>
+                <option value="conditional_ba">〜ば (Conditional)</option>
+                <option value="conjectural">〜だろう (Conjectural)</option>
+                <option value="desire">〜たい (Desire)</option>
+                <option value="ease_yasui">〜やすい (Easy)</option>
+                <option value="ease_nikui">〜にくい (Difficult)</option>
               </select>
             </div>
 
