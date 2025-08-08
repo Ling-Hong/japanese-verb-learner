@@ -7,7 +7,7 @@ import { masteryTracker } from '@/utils/masteryTracker'
 
 export default function VerbPractice() {
   const [currentVerb, setCurrentVerb] = useState<Verb | null>(null)
-  const [conjugationType, setConjugationType] = useState<ConjugationType>('dictionary')
+  const [conjugationType, setConjugationType] = useState<ConjugationType>('masu')
   const [userAnswer, setUserAnswer] = useState('')
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
   const [score, setScore] = useState(0)
@@ -84,7 +84,7 @@ export default function VerbPractice() {
                 }}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
               >
-                <option value="dictionary">基本形 (Dictionary)</option>
+
                 <option value="masu">ます形 (Polite Present)</option>
                 <option value="masu_past">ました (Polite Past)</option>
                 <option value="ta">た形 (Plain Past)</option>

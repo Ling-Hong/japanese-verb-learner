@@ -253,7 +253,7 @@ export default function MasteryDashboard({ onClose }: MasteryDashboardProps) {
             <div className="space-y-6">
               <h3 className="font-semibold text-gray-800">Form Mastery Analysis</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {(['dictionary', 'masu', 'masu_past', 'ta', 'te', 'nai', 'nai_past', 'te_iru', 'potential', 'volitional', 'passive', 'causative', 'causative_passive', 'imperative', 'prohibitive', 'conditional_tara', 'conditional_ba', 'conjectural', 'desire', 'ease_yasui', 'ease_nikui'] as ConjugationType[]).map(form => {
+                {(['masu', 'masu_past', 'ta', 'te', 'nai', 'nai_past', 'te_iru', 'potential', 'volitional', 'passive', 'causative', 'causative_passive', 'imperative', 'prohibitive', 'conditional_tara', 'conditional_ba', 'conjectural', 'desire', 'ease_yasui', 'ease_nikui'] as ConjugationType[]).map(form => {
                   let totalScore = 0
                   let practicedCount = 0
                   

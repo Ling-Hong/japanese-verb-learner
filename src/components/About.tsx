@@ -80,7 +80,7 @@ export default function About({ onClose }: AboutProps) {
                 <div>
                   <h4 className="font-semibold text-gray-700 mb-2">Basic Forms</h4>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Dictionary form (基本形)</li>
+
                     <li>• Polite present (ます形)</li>
                     <li>• Polite past (ました)</li>
                     <li>• Plain past (た形)</li>
