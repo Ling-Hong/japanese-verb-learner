@@ -89,7 +89,17 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
         setIsCorrect(null)
       }, 2000)
     } else {
-      // Drill completed
+      // Drill completed - automatically mark day as completed
+      const sessionTime = sessionStartTime ? Math.floor((Date.now() - sessionStartTime.getTime()) / 1000) : 0
+      const dayScore = Object.values(drillResults).filter(Boolean).length + (isAnswerCorrect ? 1 : 0)
+      
+      setProgress(prev => ({
+        ...prev,
+        completedDays: [...prev.completedDays, prev.currentDay],
+        scores: { ...prev.scores, [prev.currentDay]: dayScore },
+        timeRecords: { ...prev.timeRecords, [prev.currentDay]: sessionTime }
+      }))
+      
       setTimeout(() => {
         setShowDrill(true)
       }, 2000)
@@ -100,6 +110,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
     loadNewVerb()
     setDrillResults({})
     setShowDrill(false)
+    setSessionStartTime(new Date()) // Reset session timer for new practice
   }
 
 
