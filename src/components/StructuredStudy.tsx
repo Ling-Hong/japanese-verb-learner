@@ -105,7 +105,9 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
       if (currentWordIndex < dayWords.length - 1) {
         // Move to next word
         setTimeout(() => {
-          setCurrentWordIndex(prev => prev + 1)
+          const nextWordIndex = currentWordIndex + 1
+          setCurrentWordIndex(nextWordIndex)
+          setCurrentVerb(dayWords[nextWordIndex])
           setDailyProgress(prev => prev + 1)
           setCurrentFormIndex(0)
           setCurrentForm(currentDayData.forms[0])
