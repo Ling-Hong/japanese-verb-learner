@@ -85,7 +85,6 @@ Run every verb through all 18 forms without notes.
 #### Day 14 – Full Cycle Challenge  
 Pick 5 random verbs → run all 18 forms → write a short story using at least 10 different conjugations.
 
----
 
 ### How to Repeat the Cycle
 
@@ -94,7 +93,7 @@ Pick 5 random verbs → run all 18 forms → write a short story using at least 
 - After ~4 cycles, you’ll have actively practiced all verbs with every conjugation form.
 
 
-## Getting Started
+## Use it Locally
 
 ### Prerequisites
 
@@ -120,25 +119,6 @@ npm run dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 🚀 Sharing with Friends
-
-Want to share this app with friends? Check out our [Deployment Guide](DEPLOYMENT.md) for easy deployment options!
-
-### Quick Deploy (Recommended):
-```bash
-# Deploy to Vercel (free hosting)
-vercel
-
-# Share the URL with friends!
-```
-
-### Local Sharing:
-```bash
-# Share on your local network
-npm run dev
-# Share: http://YOUR_IP_ADDRESS:3000
-```
 
 ## Tech Stack
 
