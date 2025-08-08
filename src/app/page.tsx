@@ -91,7 +91,7 @@ export default function Home() {
             </div>
           ) : (
                         <div className="bg-white rounded-lg shadow-lg p-6">
-              <VerbPractice mode="practice" />
+              <VerbPractice />
             </div>
           )}
         </div>

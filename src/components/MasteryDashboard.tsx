@@ -141,7 +141,7 @@ export default function MasteryDashboard({ onClose }: MasteryDashboardProps) {
                   <div className="text-sm text-purple-700">Recently Practiced</div>
                 </div>
                 <div className="bg-yellow-50 p-4 rounded-lg text-center">
-                  <div className="text-2xl font-bold text-yellow-600">{stats.notPracticed}</div>
+                  <div className="text-2xl font-bold text-yellow-600">{stats.masteryDistribution.notPracticed}</div>
                   <div className="text-sm text-yellow-700">Not Practiced</div>
                 </div>
               </div>

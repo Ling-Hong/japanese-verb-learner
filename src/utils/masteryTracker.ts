@@ -268,7 +268,8 @@ export class MasteryTracker {
         notPracticed: 0
       },
       recentlyPracticed: 0,
-      totalPracticeTime: 0
+      totalPracticeTime: 0,
+      notPracticed: 0
     }
     
     let totalMastery = 0
