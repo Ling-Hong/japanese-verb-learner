@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { getRandomVerb, conjugateVerb, getConjugationDisplayName } from '@/utils/verbUtils'
 import { Verb, ConjugationType } from '@/types/verb'
+import { masteryTracker } from '@/utils/masteryTracker'
 
 export default function VerbPractice() {
   const [currentVerb, setCurrentVerb] = useState<Verb | null>(null)
@@ -28,6 +29,9 @@ export default function VerbPractice() {
 
     const correctAnswer = conjugateVerb(currentVerb, conjugationType)
     const isAnswerCorrect = userAnswer.trim().toLowerCase() === correctAnswer.toLowerCase()
+    
+    // Update mastery tracking
+    masteryTracker.updateMastery(currentVerb.dictionary, conjugationType, isAnswerCorrect)
     
     setIsCorrect(isAnswerCorrect)
     setTotalAttempts(prev => prev + 1)

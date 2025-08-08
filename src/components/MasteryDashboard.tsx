@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { masteryTracker } from '@/utils/masteryTracker'
 import { masterVerbList } from '@/data/masterVerbList'
 import { Verb, ConjugationType } from '@/types/verb'
@@ -13,6 +13,12 @@ interface MasteryDashboardProps {
 export default function MasteryDashboard({ onClose }: MasteryDashboardProps) {
   const [activeTab, setActiveTab] = useState<'overview' | 'verbs' | 'forms' | 'export'>('overview')
   const [selectedVerb, setSelectedVerb] = useState<Verb | null>(null)
+  const [refreshKey, setRefreshKey] = useState(0)
+
+  // Force refresh when component mounts
+  useEffect(() => {
+    setRefreshKey(prev => prev + 1)
+  }, [])
 
   const stats = masteryTracker.getMasteryStats()
   const verbsNeedingPractice = masteryTracker.getVerbsNeedingPractice(10)
