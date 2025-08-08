@@ -13,7 +13,7 @@ export const masterVerbList: Verb[] = [
   { dictionary: '開ける', meaning: 'to open', type: 'ichidan', difficultyLevel: 'medium' },
   { dictionary: '閉める', meaning: 'to close', type: 'ichidan', difficultyLevel: 'medium' },
   { dictionary: '始める', meaning: 'to begin', type: 'ichidan', difficultyLevel: 'medium' },
-  { dictionary: '終わる', meaning: 'to end', type: 'ichidan', difficultyLevel: 'medium' },
+  { dictionary: '終わる', meaning: 'to end', type: 'godan', difficultyLevel: 'medium' },
   { dictionary: '決める', meaning: 'to decide', type: 'ichidan', difficultyLevel: 'medium' },
   { dictionary: '考える', meaning: 'to think', type: 'ichidan', difficultyLevel: 'medium' },
   { dictionary: '教える', meaning: 'to teach', type: 'ichidan', difficultyLevel: 'medium' },
