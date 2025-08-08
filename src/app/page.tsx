@@ -6,7 +6,7 @@ import StructuredStudy from '@/components/StructuredStudy'
 import MasteryDashboard from '@/components/MasteryDashboard'
 import Header from '@/components/Header'
 
-type AppMode = 'menu' | 'learn' | 'practice' | 'structured' | 'mastery'
+type AppMode = 'menu' | 'practice' | 'structured' | 'mastery'
 
 export default function Home() {
   const [currentMode, setCurrentMode] = useState<AppMode>('menu')
@@ -51,13 +51,7 @@ export default function Home() {
             <div className="bg-white rounded-lg shadow-lg p-6">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Choose Your Learning Mode</h2>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="bg-blue-50 p-6 rounded-lg text-center hover:bg-blue-100 transition-colors cursor-pointer" onClick={() => setCurrentMode('learn')}>
-                  <div className="text-3xl mb-4">📚</div>
-                  <h3 className="text-lg font-semibold text-blue-800 mb-2">Learn</h3>
-                  <p className="text-blue-700 text-sm">Study verb types and conjugation rules</p>
-                </div>
-                
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="bg-green-50 p-6 rounded-lg text-center hover:bg-green-100 transition-colors cursor-pointer" onClick={() => setCurrentMode('practice')}>
                   <div className="text-3xl mb-4">🎯</div>
                   <h3 className="text-lg font-semibold text-green-800 mb-2">Practice</h3>
@@ -86,33 +80,8 @@ export default function Home() {
               </div>
             </div>
           ) : (
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="flex justify-center mb-6">
-                <div className="flex bg-gray-100 rounded-lg p-1">
-                  <button
-                    onClick={() => setCurrentMode('learn')}
-                    className={`px-4 py-2 rounded-md transition-colors ${
-                      currentMode === 'learn'
-                        ? 'bg-white shadow-sm text-blue-600'
-                        : 'text-gray-600 hover:text-gray-800'
-                    }`}
-                  >
-                    Learn
-                  </button>
-                  <button
-                    onClick={() => setCurrentMode('practice')}
-                    className={`px-4 py-2 rounded-md transition-colors ${
-                      currentMode === 'practice'
-                        ? 'bg-white shadow-sm text-blue-600'
-                        : 'text-gray-600 hover:text-gray-800'
-                    }`}
-                  >
-                    Practice
-                  </button>
-                </div>
-              </div>
-              
-              <VerbPractice mode={currentMode === 'learn' ? 'learn' : 'practice'} />
+                        <div className="bg-white rounded-lg shadow-lg p-6">
+              <VerbPractice mode="practice" />
             </div>
           )}
         </div>

@@ -4,11 +4,7 @@ import { useState, useEffect } from 'react'
 import { getRandomVerb, conjugateVerb, getConjugationDisplayName } from '@/utils/verbUtils'
 import { Verb, ConjugationType } from '@/types/verb'
 
-interface VerbPracticeProps {
-  mode: 'learn' | 'practice'
-}
-
-export default function VerbPractice({ mode }: VerbPracticeProps) {
+export default function VerbPractice() {
   const [currentVerb, setCurrentVerb] = useState<Verb | null>(null)
   const [conjugationType, setConjugationType] = useState<ConjugationType>('dictionary')
   const [userAnswer, setUserAnswer] = useState('')
@@ -17,10 +13,8 @@ export default function VerbPractice({ mode }: VerbPracticeProps) {
   const [totalAttempts, setTotalAttempts] = useState(0)
 
   useEffect(() => {
-    if (mode === 'practice') {
-      loadNewVerb()
-    }
-  }, [mode])
+    loadNewVerb()
+  }, [])
 
   const loadNewVerb = () => {
     const verb = getRandomVerb()
@@ -47,32 +41,7 @@ export default function VerbPractice({ mode }: VerbPracticeProps) {
     loadNewVerb()
   }
 
-  if (mode === 'learn') {
-    return (
-      <div className="text-center">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Learn Japanese Verb Conjugations</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-blue-800 mb-4">Verb Types</h3>
-            <ul className="text-left space-y-2 text-gray-700">
-              <li><strong className="text-blue-800">Ichidan (一段):</strong> Verbs ending in -る (e.g., 食べる, 見る)</li>
-              <li><strong className="text-blue-800">Godan (五段):</strong> Verbs ending in -u (e.g., 行く, 話す)</li>
-              <li><strong className="text-blue-800">Irregular:</strong> する, 来る, 行く</li>
-            </ul>
-          </div>
-          <div className="bg-green-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-green-800 mb-4">Common Conjugations</h3>
-            <ul className="text-left space-y-2 text-gray-700">
-              <li><strong className="text-green-800">ます形:</strong> Polite form (食べます)</li>
-              <li><strong className="text-green-800">て形:</strong> Te-form (食べて)</li>
-              <li><strong className="text-green-800">た形:</strong> Past tense (食べた)</li>
-              <li><strong className="text-green-800">ない形:</strong> Negative (食べない)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    )
-  }
+
 
   return (
     <div className="max-w-2xl mx-auto">
