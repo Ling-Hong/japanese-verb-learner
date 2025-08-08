@@ -1,9 +1,10 @@
 interface HeaderProps {
   onHomeClick?: () => void
   onProgressClick?: () => void
+  onAboutClick?: () => void
 }
 
-export default function Header({ onHomeClick, onProgressClick }: HeaderProps) {
+export default function Header({ onHomeClick, onProgressClick, onAboutClick }: HeaderProps) {
   return (
     <header className="bg-white shadow-sm border-b">
       <div className="container mx-auto px-4 py-4">
@@ -29,9 +30,12 @@ export default function Header({ onHomeClick, onProgressClick }: HeaderProps) {
             >
               Progress
             </button>
-            <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+            <button 
+              onClick={onAboutClick}
+              className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+            >
               About
-            </a>
+            </button>
           </nav>
         </div>
       </div>

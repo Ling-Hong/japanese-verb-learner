@@ -4,9 +4,10 @@ import { useState } from 'react'
 import VerbPractice from '@/components/VerbPractice'
 import StructuredStudy from '@/components/StructuredStudy'
 import MasteryDashboard from '@/components/MasteryDashboard'
+import About from '@/components/About'
 import Header from '@/components/Header'
 
-type AppMode = 'menu' | 'practice' | 'structured' | 'mastery'
+type AppMode = 'menu' | 'practice' | 'structured' | 'mastery' | 'about'
 
 export default function Home() {
   const [currentMode, setCurrentMode] = useState<AppMode>('menu')
@@ -14,7 +15,7 @@ export default function Home() {
   if (currentMode === 'structured') {
     return (
       <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-        <Header onHomeClick={() => setCurrentMode('menu')} onProgressClick={() => setCurrentMode('mastery')} />
+        <Header onHomeClick={() => setCurrentMode('menu')} onProgressClick={() => setCurrentMode('mastery')} onAboutClick={() => setCurrentMode('about')} />
         <div className="container mx-auto px-4 py-8">
           <StructuredStudy onBack={() => setCurrentMode('menu')} />
         </div>
@@ -25,7 +26,7 @@ export default function Home() {
   if (currentMode === 'mastery') {
     return (
       <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-        <Header onHomeClick={() => setCurrentMode('menu')} onProgressClick={() => setCurrentMode('mastery')} />
+        <Header onHomeClick={() => setCurrentMode('menu')} onProgressClick={() => setCurrentMode('mastery')} onAboutClick={() => setCurrentMode('about')} />
         <div className="container mx-auto px-4 py-8">
           <MasteryDashboard onClose={() => setCurrentMode('menu')} />
         </div>
@@ -33,10 +34,19 @@ export default function Home() {
     )
   }
 
-  return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <Header onHomeClick={() => setCurrentMode('menu')} onProgressClick={() => setCurrentMode('mastery')} />
-      <div className="container mx-auto px-4 py-8">
+  if (currentMode === 'about') {
+    return (
+      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+        <Header onHomeClick={() => setCurrentMode('menu')} onProgressClick={() => setCurrentMode('mastery')} onAboutClick={() => setCurrentMode('about')} />
+        <About onClose={() => setCurrentMode('menu')} />
+      </main>
+    )
+  }
+
+      return (
+      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+        <Header onHomeClick={() => setCurrentMode('menu')} onProgressClick={() => setCurrentMode('mastery')} onAboutClick={() => setCurrentMode('about')} />
+        <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-800 mb-4">

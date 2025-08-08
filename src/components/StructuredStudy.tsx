@@ -19,7 +19,9 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
     cycleStartDate: new Date(),
     completedDays: [],
     scores: {},
-    timeRecords: {}
+    timeRecords: {},
+    cycleNumber: 1,
+    selectedVerbs: []
   })
   
   const [currentVerb, setCurrentVerb] = useState<Verb | null>(null)
