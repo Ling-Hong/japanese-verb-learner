@@ -105,7 +105,7 @@ export default function VerbPractice({ mode }: VerbPracticeProps) {
                 id="conjugation-type"
                 value={conjugationType}
                 onChange={(e) => setConjugationType(e.target.value as ConjugationType)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
               >
                 <option value="dictionary">基本形 (Dictionary)</option>
                 <option value="masu">ます形 (Polite Present)</option>
