@@ -3,9 +3,10 @@
 import { useState } from 'react'
 import VerbPractice from '@/components/VerbPractice'
 import StructuredStudy from '@/components/StructuredStudy'
+import MasteryDashboard from '@/components/MasteryDashboard'
 import Header from '@/components/Header'
 
-type AppMode = 'menu' | 'learn' | 'practice' | 'structured'
+type AppMode = 'menu' | 'learn' | 'practice' | 'structured' | 'mastery'
 
 export default function Home() {
   const [currentMode, setCurrentMode] = useState<AppMode>('menu')
@@ -16,6 +17,17 @@ export default function Home() {
         <Header />
         <div className="container mx-auto px-4 py-8">
           <StructuredStudy onBack={() => setCurrentMode('menu')} />
+        </div>
+      </main>
+    )
+  }
+
+  if (currentMode === 'mastery') {
+    return (
+      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+        <Header />
+        <div className="container mx-auto px-4 py-8">
+          <MasteryDashboard onClose={() => setCurrentMode('menu')} />
         </div>
       </main>
     )
@@ -39,7 +51,7 @@ export default function Home() {
             <div className="bg-white rounded-lg shadow-lg p-6">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Choose Your Learning Mode</h2>
               
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-blue-50 p-6 rounded-lg text-center hover:bg-blue-100 transition-colors cursor-pointer" onClick={() => setCurrentMode('learn')}>
                   <div className="text-3xl mb-4">📚</div>
                   <h3 className="text-lg font-semibold text-blue-800 mb-2">Learn</h3>
@@ -56,6 +68,12 @@ export default function Home() {
                   <div className="text-3xl mb-4">📅</div>
                   <h3 className="text-lg font-semibold text-purple-800 mb-2">Structured Study</h3>
                   <p className="text-purple-700 text-sm">Follow the 2-week comprehensive study plan</p>
+                </div>
+
+                <div className="bg-orange-50 p-6 rounded-lg text-center hover:bg-orange-100 transition-colors cursor-pointer" onClick={() => setCurrentMode('mastery')}>
+                  <div className="text-3xl mb-4">📊</div>
+                  <h3 className="text-lg font-semibold text-orange-800 mb-2">Mastery Dashboard</h3>
+                  <p className="text-orange-700 text-sm">Track your progress and mastery scores</p>
                 </div>
               </div>
               

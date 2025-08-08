@@ -27,6 +27,57 @@ export interface Verb {
   meaning: string
   type: VerbType
   reading?: string
+  masteryScore?: number // 0-100, undefined means not practiced
+  lastPracticed?: Date
+  practiceCount?: number
+  difficultyLevel?: 'easy' | 'medium' | 'hard'
+}
+
+export interface VerbMastery {
+  verbId: string // dictionary form as ID
+  masteryScore: number // 0-100
+  lastPracticed: Date
+  practiceCount: number
+  correctAnswers: number
+  totalAttempts: number
+  formScores: { [key in ConjugationType]?: number } // Individual form mastery
+  cycleHistory: {
+    cycleNumber: number
+    date: Date
+    score: number
+    formsPracticed: ConjugationType[]
+  }[]
+}
+
+export interface VerbList {
+  id: string
+  name: string
+  description: string
+  verbs: Verb[]
+  createdAt: Date
+  lastUpdated: Date
+  isActive: boolean
+}
+
+export interface Worksheet {
+  id: string
+  title: string
+  description: string
+  cycleNumber: number
+  dayNumber: number
+  exercises: WorksheetExercise[]
+  createdAt: Date
+  completedAt?: Date
+  score?: number
+}
+
+export interface WorksheetExercise {
+  verb: Verb
+  targetForm: ConjugationType
+  userAnswer?: string
+  correctAnswer?: string
+  isCorrect?: boolean
+  timeSpent?: number // in seconds
 }
 
 export interface ConjugationRule {
@@ -57,4 +108,17 @@ export interface StudyProgress {
   completedDays: number[]
   scores: { [day: number]: number }
   timeRecords: { [day: number]: number } // in seconds
+  cycleNumber: number
+  selectedVerbs: Verb[]
+  worksheetId?: string
+}
+
+export interface CycleResult {
+  cycleNumber: number
+  startDate: Date
+  endDate: Date
+  selectedVerbs: Verb[]
+  masteryUpdates: VerbMastery[]
+  overallScore: number
+  completedWorksheets: Worksheet[]
 } 

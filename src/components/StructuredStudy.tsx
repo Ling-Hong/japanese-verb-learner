@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react'
 import { getRandomVerb, conjugateVerb, getConjugationDisplayName } from '@/utils/verbUtils'
 import { studyPlan, getCurrentDay, getNextDay, getPreviousDay } from '@/data/studyPlan'
-import { Verb, ConjugationType, StudyProgress } from '@/types/verb'
+import { Verb, ConjugationType, StudyProgress, Worksheet } from '@/types/verb'
 import ProgressTracker from './ProgressTracker'
+import WorksheetPractice from './WorksheetPractice'
+import { masteryTracker } from '@/utils/masteryTracker'
 
 interface StructuredStudyProps {
   onBack: () => void
@@ -29,6 +31,8 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
   const [showDrill, setShowDrill] = useState(false)
   const [drillResults, setDrillResults] = useState<{ [key: string]: boolean }>({})
   const [showProgress, setShowProgress] = useState(false)
+  const [currentWorksheet, setCurrentWorksheet] = useState<Worksheet | null>(null)
+  const [showWorksheet, setShowWorksheet] = useState(false)
 
   const currentDayData = getCurrentDay(progress)
   const nextDayData = getNextDay(progress)
@@ -36,13 +40,24 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
 
   useEffect(() => {
     if (currentDayData) {
+      // Initialize cycle with selected verbs if not already done
+      if (progress.selectedVerbs.length === 0) {
+        const selectedVerbs = masteryTracker.selectVerbsForCycle(progress.cycleNumber)
+        setProgress(prev => ({
+          ...prev,
+          selectedVerbs
+        }))
+      }
+      
       loadNewVerb()
       setSessionStartTime(new Date())
     }
-  }, [currentDayData])
+  }, [currentDayData, progress.selectedVerbs.length, progress.cycleNumber])
 
   const loadNewVerb = () => {
-    const verb = getRandomVerb()
+    const verb = progress.selectedVerbs.length > 0 
+      ? progress.selectedVerbs[Math.floor(Math.random() * progress.selectedVerbs.length)]
+      : getRandomVerb()
     setCurrentVerb(verb)
     setUserAnswer('')
     setIsCorrect(null)
@@ -100,6 +115,34 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
     }))
   }
 
+  const handleStartWorksheet = () => {
+    if (!currentDayData || progress.selectedVerbs.length === 0) return
+    
+    const worksheet = masteryTracker.generateWorksheet(
+      progress.cycleNumber,
+      progress.currentDay,
+      progress.selectedVerbs,
+      currentDayData.forms
+    )
+    
+    setCurrentWorksheet(worksheet)
+    setShowWorksheet(true)
+  }
+
+  const handleWorksheetComplete = (completedWorksheet: Worksheet) => {
+    setShowWorksheet(false)
+    setCurrentWorksheet(null)
+    
+    // Update progress with worksheet results
+    setProgress(prev => ({
+      ...prev,
+      completedDays: [...prev.completedDays, prev.currentDay],
+      scores: { ...prev.scores, [prev.currentDay]: completedWorksheet.score || 0 },
+      timeRecords: { ...prev.timeRecords, [prev.currentDay]: completedWorksheet.exercises.reduce((sum, ex) => sum + (ex.timeSpent || 0), 0) },
+      worksheetId: completedWorksheet.id
+    }))
+  }
+
   const handleNextDay = () => {
     if (nextDayData) {
       setProgress(prev => ({
@@ -123,6 +166,16 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
   const getProgressPercentage = () => {
     const totalDays = studyPlan.reduce((total, week) => total + week.days.length, 0)
     return Math.round((progress.completedDays.length / totalDays) * 100)
+  }
+
+  if (showWorksheet && currentWorksheet) {
+    return (
+      <WorksheetPractice
+        worksheet={currentWorksheet}
+        onComplete={handleWorksheetComplete}
+        onBack={() => setShowWorksheet(false)}
+      />
+    )
   }
 
   if (!currentDayData) {
@@ -277,20 +330,26 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
               Score: {Object.values(drillResults).filter(Boolean).length} / {Object.keys(drillResults).length}
             </div>
             
-            <div className="flex justify-center space-x-4">
-              <button
-                onClick={handleNextVerb}
-                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
-              >
-                Practice Another Verb
-              </button>
-              <button
-                onClick={handleCompleteDay}
-                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors"
-              >
-                Complete Day
-              </button>
-            </div>
+                      <div className="flex justify-center space-x-4">
+            <button
+              onClick={handleNextVerb}
+              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+            >
+              Practice Another Verb
+            </button>
+            <button
+              onClick={handleStartWorksheet}
+              className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors"
+            >
+              Start Worksheet
+            </button>
+            <button
+              onClick={handleCompleteDay}
+              className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors"
+            >
+              Complete Day
+            </button>
+          </div>
           </div>
         </div>
       )}
