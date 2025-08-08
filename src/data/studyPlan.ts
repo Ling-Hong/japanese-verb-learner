@@ -6,11 +6,11 @@ export const studyPlan: StudyCycle[] = [
     days: [
       {
         day: 1,
-        title: "Basic & Polite Forms",
+        title: "Basic & Polite",
         description: "Master the fundamental forms: dictionary, polite present, and past forms",
         forms: ['masu', 'masu_past', 'ta'],
         drillPattern: "dictionary → masu → past polite → past plain",
-        application: "3 sentences in plain form, 3 in polite form"
+        application: "Write 3 sentences in plain form, 3 in polite form"
       },
       {
         day: 2,
@@ -18,15 +18,15 @@ export const studyPlan: StudyCycle[] = [
         description: "Learn te-form and how to express ongoing actions",
         forms: ['te', 'te_iru'],
         drillPattern: "dictionary → te-form → progressive (〜ている)",
-        application: "3 'right now' sentences"
+        application: "Write 3 'right now' sentences"
       },
       {
         day: 3,
-        title: "Negative Forms",
+        title: "Negative & Negative Past",
         description: "Master negative present and past forms",
         forms: ['nai', 'nai_past'],
         drillPattern: "dictionary → negative present (ない) → negative past (なかった)",
-        application: "3 'don't do' sentences, 3 'didn't do' sentences"
+        application: "Write 3 'don't do' sentences, 3 'didn't do' sentences"
       },
       {
         day: 4,
@@ -34,7 +34,7 @@ export const studyPlan: StudyCycle[] = [
         description: "Learn to express ability and intention",
         forms: ['potential', 'volitional'],
         drillPattern: "dictionary → potential (can) → volitional (let's)",
-        application: "3 'can do' sentences, 3 'let's do' sentences"
+        application: "Write 3 'can do' sentences, 3 'let's do' sentences"
       },
       {
         day: 5,
@@ -42,12 +42,12 @@ export const studyPlan: StudyCycle[] = [
         description: "Learn passive voice and causative forms",
         forms: ['passive', 'causative'],
         drillPattern: "dictionary → passive → causative",
-        application: "2 sentences for each form"
+        application: "Write 2 sentences for each"
       },
       {
         day: 6,
-        title: "Review Week 1",
-        description: "Comprehensive review of all forms learned this week",
+        title: "Review 1",
+        description: "Take each verb through all forms from Days 1–5",
         forms: ['masu', 'masu_past', 'ta', 'te', 'te_iru', 'nai', 'nai_past', 'potential', 'volitional', 'passive', 'causative'],
         drillPattern: "Take each verb through all forms from Days 1–5",
         application: "Complete conjugation practice with all forms"
@@ -71,7 +71,7 @@ export const studyPlan: StudyCycle[] = [
         description: "Learn the complex causative-passive form",
         forms: ['causative_passive'],
         drillPattern: "dictionary → causative-passive",
-        application: "2 sentences about 'being made to do something'"
+        application: "Write 2 sentences about 'being made to do something'"
       },
       {
         day: 9,
@@ -79,7 +79,7 @@ export const studyPlan: StudyCycle[] = [
         description: "Learn commands and prohibitions",
         forms: ['imperative', 'prohibitive'],
         drillPattern: "dictionary → imperative → prohibitive (〜な)",
-        application: "2 command sentences, 2 'don't do' sentences"
+        application: "Write 2 command sentences, 2 'don't do' sentences"
       },
       {
         day: 10,
@@ -87,7 +87,7 @@ export const studyPlan: StudyCycle[] = [
         description: "Master conditional expressions with たら and ば",
         forms: ['ta', 'conditional_tara', 'conditional_ba'],
         drillPattern: "past tense → たら, dictionary → ば",
-        application: "3 'if' sentences for each type"
+        application: "Write 3 'if' sentences for each type"
       },
       {
         day: 11,
@@ -95,7 +95,7 @@ export const studyPlan: StudyCycle[] = [
         description: "Learn to express probability and presumption",
         forms: ['conjectural'],
         drillPattern: "dictionary → でしょう / だろう",
-        application: "3 'probably' sentences"
+        application: "Write 3 'probably' sentences"
       },
       {
         day: 12,
@@ -103,14 +103,14 @@ export const studyPlan: StudyCycle[] = [
         description: "Learn to express desires and ease/difficulty",
         forms: ['desire', 'ease_yasui', 'ease_nikui'],
         drillPattern: "dictionary → たい-form, → 〜やすい, → 〜にくい",
-        application: "1 sentence for each variation"
+        application: "Write 1 sentence for each variation"
       },
       {
         day: 13,
-        title: "Review Week 2",
-        description: "Comprehensive review of all advanced forms",
+        title: "Review 2",
+        description: "Run every verb through all 18 forms without notes",
         forms: ['masu', 'masu_past', 'ta', 'te', 'te_iru', 'nai', 'nai_past', 'potential', 'volitional', 'passive', 'causative', 'causative_passive', 'imperative', 'prohibitive', 'conditional_tara', 'conditional_ba', 'conjectural', 'desire', 'ease_yasui', 'ease_nikui'],
-        drillPattern: "Run every verb through all 17 forms without notes",
+        drillPattern: "Run every verb through all 18 forms without notes",
         application: "Complete conjugation practice with all forms"
       },
       {
@@ -118,7 +118,7 @@ export const studyPlan: StudyCycle[] = [
         title: "Full Cycle Challenge",
         description: "Final challenge using all learned forms",
         forms: ['masu', 'masu_past', 'ta', 'te', 'te_iru', 'nai', 'nai_past', 'potential', 'volitional', 'passive', 'causative', 'causative_passive', 'imperative', 'prohibitive', 'conditional_tara', 'conditional_ba', 'conjectural', 'desire', 'ease_yasui', 'ease_nikui'],
-        drillPattern: "Pick 5 random verbs → run all 17 forms",
+        drillPattern: "Pick 5 random verbs → run all 18 forms",
         application: "Write a short story using at least 10 different conjugations"
       }
     ]

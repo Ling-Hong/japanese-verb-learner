@@ -42,10 +42,10 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
 
   useEffect(() => {
     if (currentDayData) {
-      // Select 10 words for this specific day
+      // Select 15 words for this specific day
       const selectedVerbs = masteryTracker.selectVerbsForCycle(progress.cycleNumber)
-      const dayStartIndex = (progress.currentDay - 1) * 10
-      const dayEndIndex = dayStartIndex + 10
+      const dayStartIndex = (progress.currentDay - 1) * 15
+      const dayEndIndex = dayStartIndex + 15
       const wordsForDay = selectedVerbs.slice(dayStartIndex, dayEndIndex)
       
       setDayWords(wordsForDay)
@@ -258,7 +258,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
           <h3 className="font-semibold text-blue-800 mb-2">Today's Focus</h3>
           <p className="text-blue-700 mb-2">{currentDayData.description}</p>
           <div className="text-sm text-blue-600">
-            <strong>Words to Practice:</strong> {dayWords.length} words × {currentDayData.forms.length} forms each
+            <strong>Words to Practice:</strong> {dayWords.length} words × {currentDayData.forms.length} forms each (Total: {dayWords.length * currentDayData.forms.length} exercises)
           </div>
           <div className="text-sm text-blue-600">
             <strong>Drill Pattern:</strong> {currentDayData.drillPattern}
@@ -281,7 +281,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
             </div>
             <p className="text-gray-600">{currentVerb.meaning}</p>
             <div className="text-sm text-gray-500 mt-2">
-              Word {currentWordIndex + 1} of {dayWords.length} • Form {currentFormIndex + 1} of {currentDayData.forms.length}
+              Word {currentWordIndex + 1} of {dayWords.length} • Form {currentFormIndex + 1} of {currentDayData.forms.length} • Exercise {((currentWordIndex * currentDayData.forms.length) + currentFormIndex + 1)} of {dayWords.length * currentDayData.forms.length}
             </div>
           </div>
 
