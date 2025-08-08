@@ -207,7 +207,7 @@ export default function MasteryDashboard({ onClose }: MasteryDashboardProps) {
                 <input
                   type="text"
                   placeholder="Search verbs..."
-                  className="px-3 py-1 border border-gray-300 rounded-md text-sm"
+                  className="px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-900 bg-white"
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-h-96 overflow-y-auto">
