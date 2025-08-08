@@ -25,6 +25,75 @@ A web application to help you learn and practice Japanese verb conjugations.
 - **Responsive Design** - Works on mobile, tablet, and desktop
 - **Beautiful, Modern UI** - Clean interface with Tailwind CSS
 
+## Structured Study Plan
+
+### Week 1 – Core & Common Functional Forms
+
+#### Day 1 – Basic & Polite  
+**Drill:** dictionary → masu → past polite → past plain.  
+**Application:** Write 3 sentences in plain form, 3 in polite form.
+
+#### Day 2 – Te-form & Progressive  
+**Drill:** dictionary → te-form → progressive (〜ている).  
+**Application:** Write 3 “right now” sentences.
+
+#### Day 3 – Negative & Negative Past  
+**Drill:** dictionary → negative present (ない) → negative past (なかった).  
+**Application:** Write 3 “don’t do” sentences, 3 “didn’t do” sentences.
+
+#### Day 4 – Potential & Volitional  
+**Drill:** dictionary → potential (can) → volitional (let’s).  
+**Application:** Write 3 “can do” sentences, 3 “let’s do” sentences.
+
+#### Day 5 – Passive & Causative  
+**Drill:** dictionary → passive → causative.  
+**Application:** Write 2 sentences for each.
+
+#### Day 6 – Review 1  
+Take each verb through all forms from Days 1–5.
+
+#### Day 7 – Context Practice  
+Write a short diary entry using at least 8 of the forms covered this week.
+
+---
+
+### Week 2 – Advanced, Nuanced, & Less Common Forms
+
+#### Day 8 – Causative-passive  
+**Drill:** dictionary → causative-passive.  
+**Application:** Write 2 sentences about “being made to do something.”
+
+#### Day 9 – Imperative & Prohibitive  
+**Drill:** dictionary → imperative → prohibitive (〜な).  
+**Application:** Write 2 command sentences, 2 “don’t do” sentences.
+
+#### Day 10 – Conditional  
+**Drill:** past tense → たら, dictionary → ば.  
+**Application:** Write 3 “if” sentences for each type.
+
+#### Day 11 – Conjectural / Presumptive  
+**Drill:** dictionary → でしょう / だろう.  
+**Application:** Write 3 “probably” sentences.
+
+#### Day 12 – Desire & Ease  
+**Drill:** dictionary → たい-form, → 〜やすい, → 〜にくい.  
+**Application:** Write 1 sentence for each variation.
+
+#### Day 13 – Review 2  
+Run every verb through all 18 forms without notes.
+
+#### Day 14 – Full Cycle Challenge  
+Pick 5 random verbs → run all 18 forms → write a short story using at least 10 different conjugations.
+
+---
+
+### How to Repeat the Cycle
+
+- Keep a master verb list of about 100 verbs.  
+- Every 2-week cycle, pick 10–15 verbs.  
+- After ~4 cycles, you’ll have actively practiced all verbs with every conjugation form.
+
+
 ## Getting Started
 
 ### Prerequisites
