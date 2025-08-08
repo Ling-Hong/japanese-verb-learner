@@ -18,6 +18,11 @@ export class MasteryTracker {
 
   // Load data from localStorage
   private loadFromStorage() {
+    // Only run on client side
+    if (typeof window === 'undefined') {
+      return
+    }
+
     try {
       const masteryData = localStorage.getItem(MASTERY_DATA_KEY)
       if (masteryData) {
@@ -41,6 +46,11 @@ export class MasteryTracker {
 
   // Save data to localStorage
   private saveToStorage() {
+    // Only run on client side
+    if (typeof window === 'undefined') {
+      return
+    }
+
     try {
       const masteryObject = Object.fromEntries(this.masteryData)
       localStorage.setItem(MASTERY_DATA_KEY, JSON.stringify(masteryObject))

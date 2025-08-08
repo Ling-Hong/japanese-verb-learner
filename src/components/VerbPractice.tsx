@@ -54,19 +54,19 @@ export default function VerbPractice({ mode }: VerbPracticeProps) {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-blue-50 p-6 rounded-lg">
             <h3 className="text-lg font-semibold text-blue-800 mb-4">Verb Types</h3>
-            <ul className="text-left space-y-2">
-              <li><strong>Ichidan (一段):</strong> Verbs ending in -る (e.g., 食べる, 見る)</li>
-              <li><strong>Godan (五段):</strong> Verbs ending in -u (e.g., 行く, 話す)</li>
-              <li><strong>Irregular:</strong> する, 来る, 行く</li>
+            <ul className="text-left space-y-2 text-gray-700">
+              <li><strong className="text-blue-800">Ichidan (一段):</strong> Verbs ending in -る (e.g., 食べる, 見る)</li>
+              <li><strong className="text-blue-800">Godan (五段):</strong> Verbs ending in -u (e.g., 行く, 話す)</li>
+              <li><strong className="text-blue-800">Irregular:</strong> する, 来る, 行く</li>
             </ul>
           </div>
           <div className="bg-green-50 p-6 rounded-lg">
             <h3 className="text-lg font-semibold text-green-800 mb-4">Common Conjugations</h3>
-            <ul className="text-left space-y-2">
-              <li><strong>ます形:</strong> Polite form (食べます)</li>
-              <li><strong>て形:</strong> Te-form (食べて)</li>
-              <li><strong>た形:</strong> Past tense (食べた)</li>
-              <li><strong>ない形:</strong> Negative (食べない)</li>
+            <ul className="text-left space-y-2 text-gray-700">
+              <li><strong className="text-green-800">ます形:</strong> Polite form (食べます)</li>
+              <li><strong className="text-green-800">て形:</strong> Te-form (食べて)</li>
+              <li><strong className="text-green-800">た形:</strong> Past tense (食べた)</li>
+              <li><strong className="text-green-800">ない形:</strong> Negative (食べない)</li>
             </ul>
           </div>
         </div>
