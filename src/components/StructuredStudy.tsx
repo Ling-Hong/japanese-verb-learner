@@ -326,9 +326,12 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
             <div className="text-3xl font-bold text-blue-600 mb-2">
               {currentVerb.dictionary}
             </div>
+            {currentVerb.reading && (
+              <p className="text-lg text-gray-500 -mt-2 mb-2">{currentVerb.reading}</p>
+            )}
             <p className="text-gray-600">{currentVerb.meaning}</p>
-            <div className="text-sm text-gray-500 mt-2">
-              Word {currentWordIndex + 1} of {dayWords.length} • Form {currentFormIndex + 1} of {currentDayData.forms.length} • Exercise {((currentWordIndex * currentDayData.forms.length) + currentFormIndex + 1)} of {dayWords.length * currentDayData.forms.length}
+            <div className="text-sm text-gray-500 mt-2 capitalize">
+              {currentVerb.type} verb
             </div>
           </div>
 
