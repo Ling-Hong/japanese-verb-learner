@@ -6,6 +6,7 @@ import { studyPlan, getCurrentDay, getNextDay, getPreviousDay } from '@/data/stu
 import { Verb, ConjugationType, StudyProgress } from '@/types/verb'
 import ProgressTracker from './ProgressTracker'
 import { masteryTracker } from '@/utils/masteryTracker'
+import { generateExampleSentence, GeneratedExample } from '@/utils/exampleGenerator'
 
 interface StructuredStudyProps {
   onBack: () => void
@@ -57,6 +58,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
   const [dailyProgress, setDailyProgress] = useState(0) // Track daily progress (words completed)
   const [currentWordIndex, setCurrentWordIndex] = useState(0) // Track current word (0-9 for 10 words per day)
   const [dayWords, setDayWords] = useState<Verb[]>([]) // 10 words for the current day
+  const [exampleSentence, setExampleSentence] = useState<GeneratedExample | null>(null)
 
   const currentDayData = getCurrentDay(progress)
   const nextDayData = getNextDay(progress)
@@ -73,6 +75,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
       setSessionStartTime(new Date())
       setShowDrill(false)
       setDrillResults({})
+      setExampleSentence(null)
       
       // Load the first word
       if (wordsForDay.length > 0) {
@@ -94,6 +97,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
     setCurrentVerb(verb)
     setUserAnswer('')
     setIsCorrect(null)
+    setExampleSentence(null)
     setCurrentFormIndex(0)
     if (currentDayData && currentDayData.forms.length > 0) {
       setCurrentForm(currentDayData.forms[0])
@@ -107,6 +111,9 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
     const isAnswerCorrect = userAnswer.trim().toLowerCase() === correctAnswer.toLowerCase();
     
     setIsCorrect(isAnswerCorrect);
+    // Generate a dynamic example sentence for this conjugation
+    const ex = generateExampleSentence(currentVerb, currentForm)
+    setExampleSentence(ex)
     
     // Update drill results
     setDrillResults(prev => ({
@@ -122,6 +129,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
         setCurrentForm(currentDayData.forms[currentFormIndex + 1]);
         setUserAnswer('');
         setIsCorrect(null);
+        setExampleSentence(null);
       }, 2000);
     } else {
       // All forms for the current word are completed. Increment progress.
@@ -195,6 +203,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
       setDrillResults({})
       setUserAnswer('')
       setIsCorrect(null)
+      setExampleSentence(null)
       setCurrentFormIndex(0)
       setSessionStartTime(new Date())
     }
@@ -215,6 +224,7 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
       setDrillResults({})
       setUserAnswer('')
       setIsCorrect(null)
+      setExampleSentence(null)
       setCurrentFormIndex(0)
       setSessionStartTime(new Date())
     }
@@ -373,6 +383,15 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
                   <p className="font-semibold">Incorrect</p>
                   <p>The correct answer is: {conjugateVerb(currentVerb, currentForm)}</p>
                 </div>
+              )}
+
+              {exampleSentence && (
+                <p className="mt-2 text-sm text-gray-700">
+                  {exampleSentence.jp}
+                  {exampleSentence.en ? (
+                    <span className="text-xs text-gray-500"> （{exampleSentence.en}）</span>
+                  ) : null}
+                </p>
               )}
             </div>
           )}
