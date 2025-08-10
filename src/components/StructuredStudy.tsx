@@ -385,14 +385,9 @@ export default function StructuredStudy({ onBack }: StructuredStudyProps) {
                 </div>
               )}
 
-              {exampleSentence && (
-                <p className="mt-2 text-sm text-gray-700">
-                  {exampleSentence.jp}
-                  {exampleSentence.en ? (
-                    <span className="text-xs text-gray-500"> （{exampleSentence.en}）</span>
-                  ) : null}
-                </p>
-              )}
+              <p className="mt-2 text-sm">
+                {(exampleSentence && exampleSentence.jp) || `${conjugateVerb(currentVerb, currentForm)}。`}
+              </p>
             </div>
           )}
         </div>
