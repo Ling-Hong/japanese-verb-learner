@@ -1,0 +1,16 @@
+[
+  { "dictionary": "食べる", "reading": "たべる", "meaning": "to eat", "type": "ichidan", "difficultyLevel": "easy" },
+  { "dictionary": "見る", "reading": "みる", "meaning": "to see", "type": "ichidan", "difficultyLevel": "easy" },
+  { "dictionary": "行く", "reading": "いく", "meaning": "to go", "type": "godan", "difficultyLevel": "easy" },
+  { "dictionary": "話す", "reading": "はなす", "meaning": "to speak", "type": "godan", "difficultyLevel": "easy" },
+  { "dictionary": "書く", "reading": "かく", "meaning": "to write", "type": "godan", "difficultyLevel": "easy" },
+  { "dictionary": "読む", "reading": "よむ", "meaning": "to read", "type": "godan", "difficultyLevel": "easy" },
+  { "dictionary": "飲む", "reading": "のむ", "meaning": "to drink", "type": "godan", "difficultyLevel": "easy" },
+  { "dictionary": "する", "reading": "する", "meaning": "to do", "type": "irregular", "difficultyLevel": "easy" },
+  { "dictionary": "来る", "reading": "くる", "meaning": "to come", "type": "irregular", "difficultyLevel": "easy" },
+  { "dictionary": "従う", "reading": "したがう", "meaning": "to obey; to follow", "type": "godan", "difficultyLevel": "hard" },
+  { "dictionary": "蓄える", "reading": "たくわえる", "meaning": "to store; to save up", "type": "ichidan", "difficultyLevel": "hard" },
+  { "dictionary": "避ける", "reading": "さける", "meaning": "to avoid", "type": "ichidan", "difficultyLevel": "hard" },
+  { "dictionary": "促す", "reading": "うながす", "meaning": "to urge; to encourage", "type": "godan", "difficultyLevel": "hard" },
+  { "dictionary": "遂げる", "reading": "とげる", "meaning": "to accomplish; to achieve", "type": "ichidan", "difficultyLevel": "hard" }
+]
