@@ -14,6 +14,7 @@ export default function MasteryDashboard({ onClose }: MasteryDashboardProps) {
   const [activeTab, setActiveTab] = useState<'overview' | 'verbs' | 'forms' | 'export'>('overview')
   const [selectedVerb, setSelectedVerb] = useState<Verb | null>(null)
   const [refreshKey, setRefreshKey] = useState(0)
+  const [searchTerm, setSearchTerm] = useState('')
 
   // Force refresh when component mounts
   useEffect(() => {
@@ -22,6 +23,16 @@ export default function MasteryDashboard({ onClose }: MasteryDashboardProps) {
 
   const stats = masteryTracker.getMasteryStats()
   const verbsNeedingPractice = masteryTracker.getVerbsNeedingPractice(10)
+  
+  // Filter verbs for the Verb Mastery tab based on search
+  const normalized = searchTerm.trim().toLowerCase()
+  const filteredVerbs = normalized
+    ? masterVerbList.filter(v =>
+        v.dictionary.toLowerCase().includes(normalized) ||
+        (v.reading?.toLowerCase() || '').includes(normalized) ||
+        v.meaning.toLowerCase().includes(normalized)
+      )
+    : masterVerbList
 
   const getMasteryColor = (score: number) => {
     if (score >= 80) return 'text-green-600'
@@ -213,11 +224,13 @@ export default function MasteryDashboard({ onClose }: MasteryDashboardProps) {
                 <input
                   type="text"
                   placeholder="Search verbs..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                   className="px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-900 bg-white"
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-h-96 overflow-y-auto">
-                {masterVerbList.map(verb => {
+                {filteredVerbs.map(verb => {
                   const mastery = masteryTracker.getMastery(verb.dictionary)
                   return (
                     <div 
