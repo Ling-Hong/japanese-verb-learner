@@ -197,7 +197,7 @@ export default function MasteryDashboard({ onClose }: MasteryDashboardProps) {
                     <div key={verb.dictionary} className="bg-white p-3 rounded-lg border">
                       <div className="font-semibold text-gray-800">{verb.dictionary}</div>
                       <div className="text-sm text-gray-600">{verb.meaning}</div>
-                      <div className="text-xs text-gray-500">{verb.type} • {verb.difficultyLevel}</div>
+                      <div className="text-xs text-gray-500">{verb.type}</div>
                     </div>
                   ))}
                 </div>
@@ -233,7 +233,7 @@ export default function MasteryDashboard({ onClose }: MasteryDashboardProps) {
                       </div>
                       <div className="text-sm text-gray-600 mb-2">{verb.meaning}</div>
                       <div className="text-xs text-gray-500 mb-2">
-                        {verb.type} • {verb.difficultyLevel} • {mastery.practiceCount} practices
+                        {verb.type} • {mastery.practiceCount} practices
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-1">
                         <div 

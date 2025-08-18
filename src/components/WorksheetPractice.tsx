@@ -141,7 +141,7 @@ export default function WorksheetPractice({ worksheet, onComplete, onBack }: Wor
           </div>
           <p className="text-gray-600 mb-2">{currentExercise.verb.meaning}</p>
           <div className="text-sm text-gray-500">
-            Type: {currentExercise.verb.type} • Difficulty: {currentExercise.verb.difficultyLevel}
+            Type: {currentExercise.verb.type}
           </div>
         </div>
 

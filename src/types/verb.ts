@@ -30,7 +30,6 @@ export interface Verb {
   masteryScore?: number // 0-100, undefined means not practiced
   lastPracticed?: Date
   practiceCount?: number
-  difficultyLevel?: 'easy' | 'medium' | 'hard'
 }
 
 export interface VerbMastery {

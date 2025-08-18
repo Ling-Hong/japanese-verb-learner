@@ -6,10 +6,6 @@ export const masterVerbList: Verb[] = (defaultList as Verb[]).map(v => ({ ...v }
 
   
 
-export function getVerbsByDifficulty(difficulty: 'easy' | 'medium' | 'hard'): Verb[] {
-  return masterVerbList.filter(verb => verb.difficultyLevel === difficulty)
-}
-
 export function getVerbsByType(type: VerbType): Verb[] {
   return masterVerbList.filter(verb => verb.type === type)
 }
