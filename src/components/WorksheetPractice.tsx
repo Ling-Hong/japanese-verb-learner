@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { Worksheet, WorksheetExercise, ConjugationType } from '@/types/verb'
-import { getConjugationDisplayName } from '@/utils/verbUtils'
+import { getConjugationDisplayName, conjugateVerb } from '@/utils/verbUtils'
 import { masteryTracker } from '@/utils/masteryTracker'
+import { fetchCorpusExamples, findCorpusExampleContaining, type CorpusExample } from '@/utils/corpus'
+import { generateExampleSentence } from '@/utils/exampleGenerator'
 
 interface WorksheetPracticeProps {
   worksheet: Worksheet
@@ -17,10 +19,41 @@ export default function WorksheetPractice({ worksheet, onComplete, onBack }: Wor
   const [showFeedback, setShowFeedback] = useState(false)
   const [sessionStartTime] = useState<Date>(new Date())
   const [isCompleted, setIsCompleted] = useState(false)
+  const [corpusExample, setCorpusExample] = useState<CorpusExample | null>(null)
 
   const currentExercise = worksheet.exercises[currentExerciseIndex]
   const totalExercises = worksheet.exercises.length
   const progress = ((currentExerciseIndex + 1) / totalExercises) * 100
+
+  // Load corpus on mount and choose an example per exercise that includes the conjugated form
+  useEffect(() => {
+    let mounted = true
+    ;(async () => {
+      await fetchCorpusExamples()
+      if (!mounted) return
+      const conj = currentExercise.correctAnswer || conjugateVerb(currentExercise.verb, currentExercise.targetForm)
+      const ex = findCorpusExampleContaining(conj)
+      if (ex) setCorpusExample(ex)
+      else {
+        const gen = generateExampleSentence(currentExercise.verb, currentExercise.targetForm)
+        if (gen) setCorpusExample({ jp: gen.jp, en: gen.en })
+        else setCorpusExample({ jp: conj, en: conj })
+      }
+    })()
+    return () => { mounted = false }
+  }, [])
+
+  // Update example when exercise changes
+  useEffect(() => {
+    const conj = currentExercise.correctAnswer || conjugateVerb(currentExercise.verb, currentExercise.targetForm)
+    const ex = findCorpusExampleContaining(conj)
+    if (ex) setCorpusExample(ex)
+    else {
+      const gen = generateExampleSentence(currentExercise.verb, currentExercise.targetForm)
+      if (gen) setCorpusExample({ jp: gen.jp, en: gen.en })
+      else setCorpusExample({ jp: conj, en: conj })
+    }
+  }, [currentExerciseIndex])
 
   const handleSubmit = () => {
     const userAnswer = userAnswers[currentExerciseIndex] || ''
@@ -146,6 +179,13 @@ export default function WorksheetPractice({ worksheet, onComplete, onBack }: Wor
         </div>
 
         <div className="max-w-md mx-auto">
+          {corpusExample && (
+            <div className="mb-4 p-3 rounded-md bg-amber-50 border border-amber-200">
+              <div className="text-xs font-semibold text-amber-800 mb-1">Corpus example</div>
+              <div className="text-gray-900">{corpusExample.jp}</div>
+              <div className="text-gray-600 text-sm">{corpusExample.en}</div>
+            </div>
+          )}
           <div className="mb-4">
             <label htmlFor="answer" className="block text-sm font-medium text-gray-700 mb-1">
               Your Answer:

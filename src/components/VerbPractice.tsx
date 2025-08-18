@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { getRandomVerb, conjugateVerb, getConjugationDisplayName } from '@/utils/verbUtils'
 import { Verb, ConjugationType } from '@/types/verb'
 import { masteryTracker } from '@/utils/masteryTracker'
+import { fetchCorpusExamples, findCorpusExampleContaining, type CorpusExample } from '@/utils/corpus'
+import { generateExampleSentence } from '@/utils/exampleGenerator'
 
 export default function VerbPractice() {
   const [currentVerb, setCurrentVerb] = useState<Verb | null>(null)
@@ -12,9 +14,24 @@ export default function VerbPractice() {
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
   const [score, setScore] = useState(0)
   const [totalAttempts, setTotalAttempts] = useState(0)
+  const [corpusExample, setCorpusExample] = useState<CorpusExample | null>(null)
 
   useEffect(() => {
     loadNewVerb()
+    ;(async () => {
+      await fetchCorpusExamples()
+      // set initial example based on current verb & form once available
+      setTimeout(() => {
+        if (!currentVerb) return
+        const conj = conjugateVerb(currentVerb, conjugationType)
+        const ex = findCorpusExampleContaining(conj)
+        if (ex) setCorpusExample(ex)
+        else {
+          const gen = generateExampleSentence(currentVerb, conjugationType)
+          if (gen) setCorpusExample({ jp: gen.jp, en: gen.en })
+        }
+      }, 0)
+    })()
   }, [])
 
   const loadNewVerb = () => {
@@ -22,7 +39,28 @@ export default function VerbPractice() {
     setCurrentVerb(verb)
     setUserAnswer('')
     setIsCorrect(null)
+    const conj = conjugateVerb(verb, conjugationType)
+    const ex = findCorpusExampleContaining(conj)
+    if (ex) setCorpusExample(ex)
+    else {
+      const gen = generateExampleSentence(verb, conjugationType)
+      if (gen) setCorpusExample({ jp: gen.jp, en: gen.en })
+      else setCorpusExample({ jp: conj, en: conj })
+    }
   }
+
+  // Update example when conjugation type changes
+  useEffect(() => {
+    if (!currentVerb) return
+    const conj = conjugateVerb(currentVerb, conjugationType)
+    const ex = findCorpusExampleContaining(conj)
+    if (ex) setCorpusExample(ex)
+    else {
+      const gen = generateExampleSentence(currentVerb, conjugationType)
+      if (gen) setCorpusExample({ jp: gen.jp, en: gen.en })
+      else setCorpusExample({ jp: conj, en: conj })
+    }
+  }, [conjugationType, currentVerb])
 
   const handleSubmit = () => {
     if (!currentVerb) return
@@ -70,6 +108,13 @@ export default function VerbPractice() {
           </div>
 
           <div className="flex flex-col space-y-4">
+            {corpusExample && (
+              <div className="p-3 rounded-md bg-amber-50 border border-amber-200">
+                <div className="text-xs font-semibold text-amber-800 mb-1">Corpus example</div>
+                <div className="text-gray-900">{corpusExample.jp}</div>
+                <div className="text-gray-600 text-sm">{corpusExample.en}</div>
+              </div>
+            )}
             <div>
               <label htmlFor="conjugation-type" className="block text-sm font-medium text-gray-700 mb-1">
                 Conjugation Type:
