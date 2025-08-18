@@ -1,209 +1,1184 @@
 [
-
-  { "dictionary": "食べる", "reading": "たべる", "meaning": "to eat", "type": "ichidan", "difficultyLevel": "easy" },
-  { "dictionary": "見る", "reading": "みる", "meaning": "to see", "type": "ichidan", "difficultyLevel": "easy" },
-  { "dictionary": "行く", "reading": "いく", "meaning": "to go", "type": "godan", "difficultyLevel": "easy" },
-  { "dictionary": "話す", "reading": "はなす", "meaning": "to speak", "type": "godan", "difficultyLevel": "easy" },
-  { "dictionary": "書く", "reading": "かく", "meaning": "to write", "type": "godan", "difficultyLevel": "easy" },
-  { "dictionary": "読む", "reading": "よむ", "meaning": "to read", "type": "godan", "difficultyLevel": "easy" },
-  { "dictionary": "飲む", "reading": "のむ", "meaning": "to drink", "type": "godan", "difficultyLevel": "easy" },
-  { "dictionary": "する", "reading": "する", "meaning": "to do", "type": "irregular", "difficultyLevel": "easy" },
-  { "dictionary": "来る", "reading": "くる", "meaning": "to come", "type": "irregular", "difficultyLevel": "easy" },
-  { "dictionary": "起きる", "reading": "おきる", "meaning": "to get up", "type": "ichidan", "difficultyLevel": "easy" },
-  { "dictionary": "寝る", "reading": "ねる", "meaning": "to sleep", "type": "ichidan", "difficultyLevel": "easy" },
-  { "dictionary": "着る", "reading": "きる", "meaning": "to wear", "type": "ichidan", "difficultyLevel": "easy" },
-  { "dictionary": "洗う", "reading": "あらう", "meaning": "to wash", "type": "godan", "difficultyLevel": "easy" },
-  { "dictionary": "買う", "reading": "かう", "meaning": "to buy", "type": "godan", "difficultyLevel": "easy" },
-  { "dictionary": "売る", "reading": "うる", "meaning": "to sell", "type": "godan", "difficultyLevel": "easy" },
-  { "dictionary": "持つ", "reading": "もつ", "meaning": "to hold", "type": "godan", "difficultyLevel": "easy" },
-  { "dictionary": "立つ", "reading": "たつ", "meaning": "to stand", "type": "godan", "difficultyLevel": "easy" },
-  { "dictionary": "座る", "reading": "すわる", "meaning": "to sit", "type": "godan", "difficultyLevel": "easy" },
-  { "dictionary": "歩く", "reading": "あるく", "meaning": "to walk", "type": "godan", "difficultyLevel": "easy" },
-  { "dictionary": "聞く", "reading": "きく", "meaning": "to listen", "type": "godan", "difficultyLevel": "easy" },
-
-
-  { "dictionary": "頼む", "reading": "たのむ", "meaning": "to ask; to rely on", "type": "godan", "difficultyLevel": "medium" },
-  { "dictionary": "返す", "reading": "かえす", "meaning": "to return; to give back", "type": "godan", "difficultyLevel": "medium" },
-  { "dictionary": "変える", "reading": "かえる", "meaning": "to change", "type": "ichidan", "difficultyLevel": "medium" },
-  { "dictionary": "集める", "reading": "あつめる", "meaning": "to collect; to gather", "type": "ichidan", "difficultyLevel": "medium" },
-  { "dictionary": "渡す", "reading": "わたす", "meaning": "to pass; to hand over", "type": "godan", "difficultyLevel": "medium" },
-  { "dictionary": "始める", "reading": "はじめる", "meaning": "to start; to begin", "type": "ichidan", "difficultyLevel": "medium" },
-  { "dictionary": "終わる", "reading": "おわる", "meaning": "to end; to finish", "type": "godan", "difficultyLevel": "medium" },
-  { "dictionary": "探す", "reading": "さがす", "meaning": "to search; to look for", "type": "godan", "difficultyLevel": "medium" },
-  { "dictionary": "助ける", "reading": "たすける", "meaning": "to help", "type": "ichidan", "difficultyLevel": "medium" },
-  { "dictionary": "教える", "reading": "おしえる", "meaning": "to teach", "type": "ichidan", "difficultyLevel": "medium" },
-  { "dictionary": "習う", "reading": "ならう", "meaning": "to learn; to study", "type": "godan", "difficultyLevel": "medium" },
-  { "dictionary": "忘れる", "reading": "わすれる", "meaning": "to forget", "type": "ichidan", "difficultyLevel": "medium" },
-  { "dictionary": "記憶する", "reading": "きおくする", "meaning": "to remember", "type": "irregular", "difficultyLevel": "medium" },
-  { "dictionary": "準備する", "reading": "じゅんびする", "meaning": "to prepare", "type": "irregular", "difficultyLevel": "medium" },
-  { "dictionary": "渡る", "reading": "わたる", "meaning": "to cross; to pass through", "type": "godan", "difficultyLevel": "medium" },
-  { "dictionary": "通る", "reading": "とおる", "meaning": "to go through; to pass", "type": "godan", "difficultyLevel": "medium" },
-  { "dictionary": "入れる", "reading": "いれる", "meaning": "to put in; to insert", "type": "ichidan", "difficultyLevel": "medium" },
-  { "dictionary": "取る", "reading": "とる", "meaning": "to take; to pick up", "type": "godan", "difficultyLevel": "medium" },
-  { "dictionary": "送る", "reading": "おくる", "meaning": "to send", "type": "godan", "difficultyLevel": "medium" },
-  { "dictionary": "届ける", "reading": "とどける", "meaning": "to deliver; to reach", "type": "ichidan", "difficultyLevel": "medium" },
-
-
-  { "dictionary": "従う", "reading": "したがう", "meaning": "to obey; to follow", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "蓄える", "reading": "たくわえる", "meaning": "to store; to save up", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "避ける", "reading": "さける", "meaning": "to avoid", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "促す", "reading": "うながす", "meaning": "to urge; to encourage", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "遂げる", "reading": "とげる", "meaning": "to accomplish; to achieve", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "躊躇う", "reading": "ためらう", "meaning": "to hesitate", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "絡む", "reading": "からむ", "meaning": "to entangle; to be involved", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "耽る", "reading": "ふける", "meaning": "to indulge in; to be absorbed in", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "鼓舞する", "reading": "こぶする", "meaning": "to inspire; to encourage", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "竣工する", "reading": "しゅんこうする", "meaning": "to complete construction", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "欠ける", "reading": "かける", "meaning": "to be missing; to lack", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "浸る", "reading": "ひたる", "meaning": "to soak; to be immersed", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "仄めかす", "reading": "ほのめかす", "meaning": "to hint; to suggest indirectly", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "峻める", "reading": "しとめる", "meaning": "to enforce strictly", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "煽る", "reading": "あおる", "meaning": "to incite; to fan (flames)", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "緩む", "reading": "ゆるむ", "meaning": "to loosen; to ease", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "宥める", "reading": "ゆるめる", "meaning": "to soothe; to calm", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "痺れる", "reading": "しびれる", "meaning": "to go numb; to tingle", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "仄る", "reading": "ほのる", "meaning": "to be faint; to glimmer", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "葺く", "reading": "かがく", "meaning": "to thatch; to roof", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "矯める", "reading": "ただす", "meaning": "to correct; to rectify", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "掠る", "reading": "かすめる", "meaning": "to graze; to brush against", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "渦巻く", "reading": "うずまく", "meaning": "to swirl; to spiral", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "仄めく", "reading": "ほのめく", "meaning": "to seem; to appear faintly", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "喘ぐ", "reading": "あえぐ", "meaning": "to gasp; to pant", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "忌む", "reading": "いむ", "meaning": "to abhor; to avoid", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "仕舞う", "reading": "しまう", "meaning": "to put away; to finish", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "仄める", "reading": "ほのめる", "meaning": "to make faint; to dim", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "糊付けする", "reading": "のりつけする", "meaning": "to paste; to glue", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "曝す", "reading": "さらす", "meaning": "to expose; to reveal", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "曝ける", "reading": "さらける", "meaning": "to expose; to lay bare", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "盥がう", "reading": "たらいがう", "meaning": "to wash in a basin", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "穢れる", "reading": "けがれる", "meaning": "to be polluted; to be impure", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "穢す", "reading": "けがす", "meaning": "to pollute; to defile", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "讃える", "reading": "たたえる", "meaning": "to praise; to commend", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "煽動する", "reading": "せんどうする", "meaning": "to incite; to agitate", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "謁見する", "reading": "えっけんする", "meaning": "to have an audience with", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "餓死する", "reading": "がしする", "meaning": "to starve to death", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "苛める", "reading": "いじめる", "meaning": "to bully; to harass", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "隘る", "reading": "せまる", "meaning": "to narrow; to become tight", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "隘める", "reading": "せばめる", "meaning": "to narrow; to constrict", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "喘息する", "reading": "ぜんそくする", "meaning": "to have asthma", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "萎える", "reading": "しぼえる", "meaning": "to wither; to shrink", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "萎れる", "reading": "しおれる", "meaning": "to wilt; to fade", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "畏れる", "reading": "おそれる", "meaning": "to fear; to reverence", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "畏まる", "reading": "かしこまる", "meaning": "to be obedient; to comply", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "掩映する", "reading": "えんえいする", "meaning": "to set off; to contrast", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "疫する", "reading": "やくする", "meaning": "to be epidemic", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "益する", "reading": "えきする", "meaning": "to benefit; to profit", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "益す", "reading": "ます", "meaning": "to increase; to augment", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "液状する", "reading": "えきじょうする", "meaning": "to be liquid", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "曳く", "reading": "ひく", "meaning": "to drag; to haul", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "曳航する", "reading": "えいこうする", "meaning": "to tow; to tug", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "荏苒する", "reading": "にんぜんする", "meaning": "to pass quickly", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "穎脱する", "reading": "えいだつする", "meaning": "to stand out; to excel", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "映える", "reading": "はえる", "meaning": "to look good; to stand out", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "映す", "reading": "うつす", "meaning": "to project; to reflect", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "泳ぐ", "reading": "およぐ", "meaning": "to swim", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "詠む", "reading": "えいむ", "meaning": "to compose (poetry)", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "詠唱する", "reading": "えいしょうする", "meaning": "to chant; to recite", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "永住する", "reading": "えいじゅうする", "meaning": "to have permanent residence", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "永久する", "reading": "えいきゅうする", "meaning": "to be permanent", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "営む", "reading": "えいむ", "meaning": "to manage; to run", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "衛生する", "reading": "えいせいする", "meaning": "to practice hygiene", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "炎上する", "reading": "えんじょうする", "meaning": "to burn down", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "沿岸する", "reading": "えんがんする", "meaning": "to be coastal", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "延々する", "reading": "えんえんする", "meaning": "to continue endlessly", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "延期する", "reading": "えんきする", "meaning": "to postpone", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "演技する", "reading": "えんぎする", "meaning": "to act; to perform", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "艶めく", "reading": "つやめく", "meaning": "to be glossy; to be charming", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "円滑する", "reading": "えんかつする", "meaning": "to be smooth", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "円満する", "reading": "えんまんする", "meaning": "to be harmonious", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "婉曲する", "reading": "えんきょくする", "meaning": "to be indirect", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "怨む", "reading": "うらむ", "meaning": "to resent; to grudge", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "遠慮する", "reading": "えんりょする", "meaning": "to hesitate; to be polite", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "遠征する", "reading": "えんせいする", "meaning": "to go on expedition", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "煙る", "reading": "けむる", "meaning": "to smoke; to steam", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "晏如する", "reading": "あんじょする", "meaning": "to be peaceful", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "掩蔽する", "reading": "えんぺいする", "meaning": "to conceal; to hide", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "卸す", "reading": "おろす", "meaning": "to wholesale; to unload", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "卸売する", "reading": "おろしうりする", "meaning": "to wholesale", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "音楽を演奏する", "reading": "おんがくをえんそうする", "meaning": "to play music", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "恩返しする", "reading": "おんがえしする", "meaning": "to repay kindness", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "温和する", "reading": "おんわする", "meaning": "to be mild", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "温める", "reading": "あたためる", "meaning": "to warm; to heat", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "穏やかにする", "reading": "おだやかにする", "meaning": "to calm; to soothe", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "蘊蓄する", "reading": "うんちくする", "meaning": "to have knowledge", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "運行する", "reading": "うんこうする", "meaning": "to operate; to run", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "運搬する", "reading": "うんぱんする", "meaning": "to transport", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "雲行きを占う", "reading": "くもゆきをうらなう", "meaning": "to forecast weather", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "曇る", "reading": "くもる", "meaning": "to be cloudy; to be dim", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "曇らせる", "reading": "くもらせる", "meaning": "to make cloudy; to obscure", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "嚥下する", "reading": "えんげする", "meaning": "to swallow", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "咽ぶ", "reading": "むせぶ", "meaning": "to choke; to sob", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "延びる", "reading": "のびる", "meaning": "to extend; to stretch", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "延ばす", "reading": "のばす", "meaning": "to lengthen; to extend", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "沿う", "reading": "そう", "meaning": "to follow; to run along", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "沿える", "reading": "そえる", "meaning": "to line; to border", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "炎する", "reading": "ほのおする", "meaning": "to flame; to burn", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "怨嗟する", "reading": "えんさする", "meaning": "to complain; to grumble", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "遠ざかる", "reading": "とおざかる", "meaning": "to go away; to distance", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "園芸する", "reading": "えんげいする", "meaning": "to garden; to practice horticulture", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "婉曲に言う", "reading": "えんきょくにいう", "meaning": "to speak indirectly", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "煙幕をかける", "reading": "えんまくをかける", "meaning": "to create a smokescreen", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "燕の巣を構える", "reading": "つばめのすをかまえる", "meaning": "to build a swallow's nest", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "掩護する", "reading": "えんごする", "meaning": "to cover; to shield", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "音頭を取る", "reading": "おんどをとる", "meaning": "to lead a song", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "音色を変える", "reading": "ねいろをかえる", "meaning": "to change tone", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "恩義に感じる", "reading": "おんぎにかんじる", "meaning": "to feel gratitude", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "温度を計る", "reading": "おんどをはかる", "meaning": "to measure temperature", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "温存する", "reading": "おんぞんする", "meaning": "to preserve; to keep", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "運命を支配する", "reading": "うんめいをしはいする", "meaning": "to control fate", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "雲層が低い", "reading": "うんそうがひくい", "meaning": "clouds are low", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "韻を含む", "reading": "いんをふくむ", "meaning": "to contain rhyme", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "嚥下困難", "reading": "えんげこんなん", "meaning": "difficulty in swallowing", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "咽せる", "reading": "むせる", "meaning": "to choke; to cough", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "諦める", "reading": "あきらめる", "meaning": "to give up", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "束ねる", "reading": "たばねる", "meaning": "to bundle; to tie up", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "放つ", "reading": "はなつ", "meaning": "to emit; to release", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "滲む", "reading": "にじむ", "meaning": "to spread; to blur", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "湛える", "reading": "たたえる", "meaning": "to fill; to brim with", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "仄めかし", "reading": "ほのめかし", "meaning": "hint; implication", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "誘う", "reading": "さそう", "meaning": "to invite; to induce", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "峻烈な", "reading": "しゅんれつな", "meaning": "severe; strict", "type": "adjective", "difficultyLevel": "hard" },
-  { "dictionary": "煽り立てる", "reading": "あおりたてる", "meaning": "to incite; to stir up", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "宥め合う", "reading": "ゆるめあう", "meaning": "to soothe each other", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "痺れ込む", "reading": "しびれこむ", "meaning": "to become numb", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "仄暗い", "reading": "ほのやみい", "meaning": "dim; darkish", "type": "adjective", "difficultyLevel": "hard" },
-  { "dictionary": "葺き替える", "reading": "かきかえる", "meaning": "to re-roof", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "矯正する", "reading": "きょうせいする", "meaning": "to correct; to rectify", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "掠れる", "reading": "かすれる", "meaning": "to be faint; to fade", "type": "ichidan", "difficultyLevel": "hard" }, 
-  { "dictionary": "忌み嫌う", "reading": "いみきらう", "meaning": "to abhor; to detest", "type": "godan", "difficultyLevel": "hard" },
-
-
-  { "dictionary": "捉える", "reading": "とらえる", "meaning": "to catch; to capture", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "書き留める", "reading": "かきとめる", "meaning": "to write down", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "整える", "reading": "ととのえる", "meaning": "to tidy up; to arrange", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "整う", "reading": "ととのう", "meaning": "to be ready; to be arranged", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "立てる", "reading": "たてる", "meaning": "to stand up; to set up", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "空ける", "reading": "あける", "meaning": "to open; to make time for", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "処分する", "reading": "しょぶんする", "meaning": "to dispose; to throw away", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "でっち上げる", "reading": "でっちあげる", "meaning": "to fabricate; to make up", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "取り消す", "reading": "とりけす", "meaning": "to", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "囲む", "reading": "かこむ", "meaning": "to surround", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "割愛する", "reading": "かつあいする", "meaning": "to omit; to give up", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "訴える", "reading": "うったえる", "meaning": "to appeal to reason/emotions", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "把握する", "reading": "はあくする", "meaning": "to understand", "type": "irregular", "difficultyLevel": "hard" },
-  { "dictionary": "満ちる", "reading": "みちる", "meaning": "to be filled with", "type": "ichidan", "difficultyLevel": "hard" },
-  { "dictionary": "背負う", "reading": "せおう", "meaning": "to take responsibility for", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "叩く", "reading": "たたく", "meaning": "to hit; to beat", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "寄り添う", "reading": "よりそう", "meaning": "to get close", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "脱ぐ", "reading": "ぬぐ", "meaning": "to take off", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "貯める", "reading": "ためる", "meaning": "to save", "type": "godan", "difficultyLevel": "hard" },
-
-  { "dictionary": "稼ぐ", "reading": "かせぐ", "meaning": "to earn", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "増やす", "reading": "ふやす", "meaning": "to earn", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "戦う", "reading": "たたかう", "meaning": "to earn", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "満たす", "reading": "みたす", "meaning": "to earn", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "下しする", "reading": "くだしする", "meaning": "to earn", "type": "godan", "difficultyLevel": "hard" },
-  { "dictionary": "動く", "reading": "うごく", "meaning": "to earn", "type": "godan", "difficultyLevel": "hard" }
+  {
+    "dictionary": "食べる",
+    "reading": "たべる",
+    "meaning": "to eat",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "見る",
+    "reading": "みる",
+    "meaning": "to see",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "行く",
+    "reading": "いく",
+    "meaning": "to go",
+    "type": "godan"
+  },
+  {
+    "dictionary": "話す",
+    "reading": "はなす",
+    "meaning": "to speak",
+    "type": "godan"
+  },
+  {
+    "dictionary": "書く",
+    "reading": "かく",
+    "meaning": "to write",
+    "type": "godan"
+  },
+  {
+    "dictionary": "読む",
+    "reading": "よむ",
+    "meaning": "to read",
+    "type": "godan"
+  },
+  {
+    "dictionary": "飲む",
+    "reading": "のむ",
+    "meaning": "to drink",
+    "type": "godan"
+  },
+  {
+    "dictionary": "する",
+    "reading": "する",
+    "meaning": "to do",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "来る",
+    "reading": "くる",
+    "meaning": "to come",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "起きる",
+    "reading": "おきる",
+    "meaning": "to get up",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "寝る",
+    "reading": "ねる",
+    "meaning": "to sleep",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "着る",
+    "reading": "きる",
+    "meaning": "to wear",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "洗う",
+    "reading": "あらう",
+    "meaning": "to wash",
+    "type": "godan"
+  },
+  {
+    "dictionary": "買う",
+    "reading": "かう",
+    "meaning": "to buy",
+    "type": "godan"
+  },
+  {
+    "dictionary": "売る",
+    "reading": "うる",
+    "meaning": "to sell",
+    "type": "godan"
+  },
+  {
+    "dictionary": "持つ",
+    "reading": "もつ",
+    "meaning": "to hold",
+    "type": "godan"
+  },
+  {
+    "dictionary": "立つ",
+    "reading": "たつ",
+    "meaning": "to stand",
+    "type": "godan"
+  },
+  {
+    "dictionary": "座る",
+    "reading": "すわる",
+    "meaning": "to sit",
+    "type": "godan"
+  },
+  {
+    "dictionary": "歩く",
+    "reading": "あるく",
+    "meaning": "to walk",
+    "type": "godan"
+  },
+  {
+    "dictionary": "聞く",
+    "reading": "きく",
+    "meaning": "to listen",
+    "type": "godan"
+  },
+  {
+    "dictionary": "頼む",
+    "reading": "たのむ",
+    "meaning": "to ask; to rely on",
+    "type": "godan"
+  },
+  {
+    "dictionary": "返す",
+    "reading": "かえす",
+    "meaning": "to return; to give back",
+    "type": "godan"
+  },
+  {
+    "dictionary": "変える",
+    "reading": "かえる",
+    "meaning": "to change",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "集める",
+    "reading": "あつめる",
+    "meaning": "to collect; to gather",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "渡す",
+    "reading": "わたす",
+    "meaning": "to pass; to hand over",
+    "type": "godan"
+  },
+  {
+    "dictionary": "始める",
+    "reading": "はじめる",
+    "meaning": "to start; to begin",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "終わる",
+    "reading": "おわる",
+    "meaning": "to end; to finish",
+    "type": "godan"
+  },
+  {
+    "dictionary": "探す",
+    "reading": "さがす",
+    "meaning": "to search; to look for",
+    "type": "godan"
+  },
+  {
+    "dictionary": "助ける",
+    "reading": "たすける",
+    "meaning": "to help",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "教える",
+    "reading": "おしえる",
+    "meaning": "to teach",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "習う",
+    "reading": "ならう",
+    "meaning": "to learn; to study",
+    "type": "godan"
+  },
+  {
+    "dictionary": "忘れる",
+    "reading": "わすれる",
+    "meaning": "to forget",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "記憶する",
+    "reading": "きおくする",
+    "meaning": "to remember",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "準備する",
+    "reading": "じゅんびする",
+    "meaning": "to prepare",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "渡る",
+    "reading": "わたる",
+    "meaning": "to cross; to pass through",
+    "type": "godan"
+  },
+  {
+    "dictionary": "通る",
+    "reading": "とおる",
+    "meaning": "to go through; to pass",
+    "type": "godan"
+  },
+  {
+    "dictionary": "入れる",
+    "reading": "いれる",
+    "meaning": "to put in; to insert",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "取る",
+    "reading": "とる",
+    "meaning": "to take; to pick up",
+    "type": "godan"
+  },
+  {
+    "dictionary": "送る",
+    "reading": "おくる",
+    "meaning": "to send",
+    "type": "godan"
+  },
+  {
+    "dictionary": "届ける",
+    "reading": "とどける",
+    "meaning": "to deliver; to reach",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "従う",
+    "reading": "したがう",
+    "meaning": "to obey; to follow",
+    "type": "godan"
+  },
+  {
+    "dictionary": "蓄える",
+    "reading": "たくわえる",
+    "meaning": "to store; to save up",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "避ける",
+    "reading": "さける",
+    "meaning": "to avoid",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "促す",
+    "reading": "うながす",
+    "meaning": "to urge; to encourage",
+    "type": "godan"
+  },
+  {
+    "dictionary": "遂げる",
+    "reading": "とげる",
+    "meaning": "to accomplish; to achieve",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "躊躇う",
+    "reading": "ためらう",
+    "meaning": "to hesitate",
+    "type": "godan"
+  },
+  {
+    "dictionary": "絡む",
+    "reading": "からむ",
+    "meaning": "to entangle; to be involved",
+    "type": "godan"
+  },
+  {
+    "dictionary": "耽る",
+    "reading": "ふける",
+    "meaning": "to indulge in; to be absorbed in",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "鼓舞する",
+    "reading": "こぶする",
+    "meaning": "to inspire; to encourage",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "竣工する",
+    "reading": "しゅんこうする",
+    "meaning": "to complete construction",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "欠ける",
+    "reading": "かける",
+    "meaning": "to be missing; to lack",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "浸る",
+    "reading": "ひたる",
+    "meaning": "to soak; to be immersed",
+    "type": "godan"
+  },
+  {
+    "dictionary": "仄めかす",
+    "reading": "ほのめかす",
+    "meaning": "to hint; to suggest indirectly",
+    "type": "godan"
+  },
+  {
+    "dictionary": "峻める",
+    "reading": "しとめる",
+    "meaning": "to enforce strictly",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "煽る",
+    "reading": "あおる",
+    "meaning": "to incite; to fan (flames)",
+    "type": "godan"
+  },
+  {
+    "dictionary": "緩む",
+    "reading": "ゆるむ",
+    "meaning": "to loosen; to ease",
+    "type": "godan"
+  },
+  {
+    "dictionary": "宥める",
+    "reading": "ゆるめる",
+    "meaning": "to soothe; to calm",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "痺れる",
+    "reading": "しびれる",
+    "meaning": "to go numb; to tingle",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "仄る",
+    "reading": "ほのる",
+    "meaning": "to be faint; to glimmer",
+    "type": "godan"
+  },
+  {
+    "dictionary": "葺く",
+    "reading": "かがく",
+    "meaning": "to thatch; to roof",
+    "type": "godan"
+  },
+  {
+    "dictionary": "矯める",
+    "reading": "ただす",
+    "meaning": "to correct; to rectify",
+    "type": "godan"
+  },
+  {
+    "dictionary": "掠る",
+    "reading": "かすめる",
+    "meaning": "to graze; to brush against",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "渦巻く",
+    "reading": "うずまく",
+    "meaning": "to swirl; to spiral",
+    "type": "godan"
+  },
+  {
+    "dictionary": "仄めく",
+    "reading": "ほのめく",
+    "meaning": "to seem; to appear faintly",
+    "type": "godan"
+  },
+  {
+    "dictionary": "喘ぐ",
+    "reading": "あえぐ",
+    "meaning": "to gasp; to pant",
+    "type": "godan"
+  },
+  {
+    "dictionary": "忌む",
+    "reading": "いむ",
+    "meaning": "to abhor; to avoid",
+    "type": "godan"
+  },
+  {
+    "dictionary": "仕舞う",
+    "reading": "しまう",
+    "meaning": "to put away; to finish",
+    "type": "godan"
+  },
+  {
+    "dictionary": "仄める",
+    "reading": "ほのめる",
+    "meaning": "to make faint; to dim",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "糊付けする",
+    "reading": "のりつけする",
+    "meaning": "to paste; to glue",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "曝す",
+    "reading": "さらす",
+    "meaning": "to expose; to reveal",
+    "type": "godan"
+  },
+  {
+    "dictionary": "曝ける",
+    "reading": "さらける",
+    "meaning": "to expose; to lay bare",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "盥がう",
+    "reading": "たらいがう",
+    "meaning": "to wash in a basin",
+    "type": "godan"
+  },
+  {
+    "dictionary": "穢れる",
+    "reading": "けがれる",
+    "meaning": "to be polluted; to be impure",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "穢す",
+    "reading": "けがす",
+    "meaning": "to pollute; to defile",
+    "type": "godan"
+  },
+  {
+    "dictionary": "讃える",
+    "reading": "たたえる",
+    "meaning": "to praise; to commend",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "煽動する",
+    "reading": "せんどうする",
+    "meaning": "to incite; to agitate",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "謁見する",
+    "reading": "えっけんする",
+    "meaning": "to have an audience with",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "餓死する",
+    "reading": "がしする",
+    "meaning": "to starve to death",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "苛める",
+    "reading": "いじめる",
+    "meaning": "to bully; to harass",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "隘る",
+    "reading": "せまる",
+    "meaning": "to narrow; to become tight",
+    "type": "godan"
+  },
+  {
+    "dictionary": "隘める",
+    "reading": "せばめる",
+    "meaning": "to narrow; to constrict",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "喘息する",
+    "reading": "ぜんそくする",
+    "meaning": "to have asthma",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "萎える",
+    "reading": "しぼえる",
+    "meaning": "to wither; to shrink",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "萎れる",
+    "reading": "しおれる",
+    "meaning": "to wilt; to fade",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "畏れる",
+    "reading": "おそれる",
+    "meaning": "to fear; to reverence",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "畏まる",
+    "reading": "かしこまる",
+    "meaning": "to be obedient; to comply",
+    "type": "godan"
+  },
+  {
+    "dictionary": "掩映する",
+    "reading": "えんえいする",
+    "meaning": "to set off; to contrast",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "疫する",
+    "reading": "やくする",
+    "meaning": "to be epidemic",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "益する",
+    "reading": "えきする",
+    "meaning": "to benefit; to profit",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "益す",
+    "reading": "ます",
+    "meaning": "to increase; to augment",
+    "type": "godan"
+  },
+  {
+    "dictionary": "液状する",
+    "reading": "えきじょうする",
+    "meaning": "to be liquid",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "曳く",
+    "reading": "ひく",
+    "meaning": "to drag; to haul",
+    "type": "godan"
+  },
+  {
+    "dictionary": "曳航する",
+    "reading": "えいこうする",
+    "meaning": "to tow; to tug",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "荏苒する",
+    "reading": "にんぜんする",
+    "meaning": "to pass quickly",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "穎脱する",
+    "reading": "えいだつする",
+    "meaning": "to stand out; to excel",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "映える",
+    "reading": "はえる",
+    "meaning": "to look good; to stand out",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "映す",
+    "reading": "うつす",
+    "meaning": "to project; to reflect",
+    "type": "godan"
+  },
+  {
+    "dictionary": "泳ぐ",
+    "reading": "およぐ",
+    "meaning": "to swim",
+    "type": "godan"
+  },
+  {
+    "dictionary": "詠む",
+    "reading": "えいむ",
+    "meaning": "to compose (poetry)",
+    "type": "godan"
+  },
+  {
+    "dictionary": "詠唱する",
+    "reading": "えいしょうする",
+    "meaning": "to chant; to recite",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "永住する",
+    "reading": "えいじゅうする",
+    "meaning": "to have permanent residence",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "永久する",
+    "reading": "えいきゅうする",
+    "meaning": "to be permanent",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "営む",
+    "reading": "えいむ",
+    "meaning": "to manage; to run",
+    "type": "godan"
+  },
+  {
+    "dictionary": "衛生する",
+    "reading": "えいせいする",
+    "meaning": "to practice hygiene",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "炎上する",
+    "reading": "えんじょうする",
+    "meaning": "to burn down",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "沿岸する",
+    "reading": "えんがんする",
+    "meaning": "to be coastal",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "延々する",
+    "reading": "えんえんする",
+    "meaning": "to continue endlessly",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "延期する",
+    "reading": "えんきする",
+    "meaning": "to postpone",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "演技する",
+    "reading": "えんぎする",
+    "meaning": "to act; to perform",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "艶めく",
+    "reading": "つやめく",
+    "meaning": "to be glossy; to be charming",
+    "type": "godan"
+  },
+  {
+    "dictionary": "円滑する",
+    "reading": "えんかつする",
+    "meaning": "to be smooth",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "円満する",
+    "reading": "えんまんする",
+    "meaning": "to be harmonious",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "婉曲する",
+    "reading": "えんきょくする",
+    "meaning": "to be indirect",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "怨む",
+    "reading": "うらむ",
+    "meaning": "to resent; to grudge",
+    "type": "godan"
+  },
+  {
+    "dictionary": "遠慮する",
+    "reading": "えんりょする",
+    "meaning": "to hesitate; to be polite",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "遠征する",
+    "reading": "えんせいする",
+    "meaning": "to go on expedition",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "煙る",
+    "reading": "けむる",
+    "meaning": "to smoke; to steam",
+    "type": "godan"
+  },
+  {
+    "dictionary": "晏如する",
+    "reading": "あんじょする",
+    "meaning": "to be peaceful",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "掩蔽する",
+    "reading": "えんぺいする",
+    "meaning": "to conceal; to hide",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "卸す",
+    "reading": "おろす",
+    "meaning": "to wholesale; to unload",
+    "type": "godan"
+  },
+  {
+    "dictionary": "卸売する",
+    "reading": "おろしうりする",
+    "meaning": "to wholesale",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "音楽を演奏する",
+    "reading": "おんがくをえんそうする",
+    "meaning": "to play music",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "恩返しする",
+    "reading": "おんがえしする",
+    "meaning": "to repay kindness",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "温和する",
+    "reading": "おんわする",
+    "meaning": "to be mild",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "温める",
+    "reading": "あたためる",
+    "meaning": "to warm; to heat",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "穏やかにする",
+    "reading": "おだやかにする",
+    "meaning": "to calm; to soothe",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "蘊蓄する",
+    "reading": "うんちくする",
+    "meaning": "to have knowledge",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "運行する",
+    "reading": "うんこうする",
+    "meaning": "to operate; to run",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "運搬する",
+    "reading": "うんぱんする",
+    "meaning": "to transport",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "雲行きを占う",
+    "reading": "くもゆきをうらなう",
+    "meaning": "to forecast weather",
+    "type": "godan"
+  },
+  {
+    "dictionary": "曇る",
+    "reading": "くもる",
+    "meaning": "to be cloudy; to be dim",
+    "type": "godan"
+  },
+  {
+    "dictionary": "曇らせる",
+    "reading": "くもらせる",
+    "meaning": "to make cloudy; to obscure",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "嚥下する",
+    "reading": "えんげする",
+    "meaning": "to swallow",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "咽ぶ",
+    "reading": "むせぶ",
+    "meaning": "to choke; to sob",
+    "type": "godan"
+  },
+  {
+    "dictionary": "延びる",
+    "reading": "のびる",
+    "meaning": "to extend; to stretch",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "延ばす",
+    "reading": "のばす",
+    "meaning": "to lengthen; to extend",
+    "type": "godan"
+  },
+  {
+    "dictionary": "沿う",
+    "reading": "そう",
+    "meaning": "to follow; to run along",
+    "type": "godan"
+  },
+  {
+    "dictionary": "沿える",
+    "reading": "そえる",
+    "meaning": "to line; to border",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "炎する",
+    "reading": "ほのおする",
+    "meaning": "to flame; to burn",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "怨嗟する",
+    "reading": "えんさする",
+    "meaning": "to complain; to grumble",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "遠ざかる",
+    "reading": "とおざかる",
+    "meaning": "to go away; to distance",
+    "type": "godan"
+  },
+  {
+    "dictionary": "園芸する",
+    "reading": "えんげいする",
+    "meaning": "to garden; to practice horticulture",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "婉曲に言う",
+    "reading": "えんきょくにいう",
+    "meaning": "to speak indirectly",
+    "type": "godan"
+  },
+  {
+    "dictionary": "煙幕をかける",
+    "reading": "えんまくをかける",
+    "meaning": "to create a smokescreen",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "燕の巣を構える",
+    "reading": "つばめのすをかまえる",
+    "meaning": "to build a swallow's nest",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "掩護する",
+    "reading": "えんごする",
+    "meaning": "to cover; to shield",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "音頭を取る",
+    "reading": "おんどをとる",
+    "meaning": "to lead a song",
+    "type": "godan"
+  },
+  {
+    "dictionary": "音色を変える",
+    "reading": "ねいろをかえる",
+    "meaning": "to change tone",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "恩義に感じる",
+    "reading": "おんぎにかんじる",
+    "meaning": "to feel gratitude",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "温度を計る",
+    "reading": "おんどをはかる",
+    "meaning": "to measure temperature",
+    "type": "godan"
+  },
+  {
+    "dictionary": "温存する",
+    "reading": "おんぞんする",
+    "meaning": "to preserve; to keep",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "運命を支配する",
+    "reading": "うんめいをしはいする",
+    "meaning": "to control fate",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "雲層が低い",
+    "reading": "うんそうがひくい",
+    "meaning": "clouds are low",
+    "type": "godan"
+  },
+  {
+    "dictionary": "韻を含む",
+    "reading": "いんをふくむ",
+    "meaning": "to contain rhyme",
+    "type": "godan"
+  },
+  {
+    "dictionary": "嚥下困難",
+    "reading": "えんげこんなん",
+    "meaning": "difficulty in swallowing",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "咽せる",
+    "reading": "むせる",
+    "meaning": "to choke; to cough",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "諦める",
+    "reading": "あきらめる",
+    "meaning": "to give up",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "束ねる",
+    "reading": "たばねる",
+    "meaning": "to bundle; to tie up",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "放つ",
+    "reading": "はなつ",
+    "meaning": "to emit; to release",
+    "type": "godan"
+  },
+  {
+    "dictionary": "滲む",
+    "reading": "にじむ",
+    "meaning": "to spread; to blur",
+    "type": "godan"
+  },
+  {
+    "dictionary": "湛える",
+    "reading": "たたえる",
+    "meaning": "to fill; to brim with",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "仄めかし",
+    "reading": "ほのめかし",
+    "meaning": "hint; implication",
+    "type": "godan"
+  },
+  {
+    "dictionary": "誘う",
+    "reading": "さそう",
+    "meaning": "to invite; to induce",
+    "type": "godan"
+  },
+  {
+    "dictionary": "峻烈な",
+    "reading": "しゅんれつな",
+    "meaning": "severe; strict",
+    "type": "adjective"
+  },
+  {
+    "dictionary": "煽り立てる",
+    "reading": "あおりたてる",
+    "meaning": "to incite; to stir up",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "宥め合う",
+    "reading": "ゆるめあう",
+    "meaning": "to soothe each other",
+    "type": "godan"
+  },
+  {
+    "dictionary": "痺れ込む",
+    "reading": "しびれこむ",
+    "meaning": "to become numb",
+    "type": "godan"
+  },
+  {
+    "dictionary": "仄暗い",
+    "reading": "ほのやみい",
+    "meaning": "dim; darkish",
+    "type": "adjective"
+  },
+  {
+    "dictionary": "葺き替える",
+    "reading": "かきかえる",
+    "meaning": "to re-roof",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "矯正する",
+    "reading": "きょうせいする",
+    "meaning": "to correct; to rectify",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "掠れる",
+    "reading": "かすれる",
+    "meaning": "to be faint; to fade",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "忌み嫌う",
+    "reading": "いみきらう",
+    "meaning": "to abhor; to detest",
+    "type": "godan"
+  },
+  {
+    "dictionary": "捉える",
+    "reading": "とらえる",
+    "meaning": "to catch; to capture",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "書き留める",
+    "reading": "かきとめる",
+    "meaning": "to write down",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "整える",
+    "reading": "ととのえる",
+    "meaning": "to tidy up; to arrange",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "整う",
+    "reading": "ととのう",
+    "meaning": "to be ready; to be arranged",
+    "type": "godan"
+  },
+  {
+    "dictionary": "立てる",
+    "reading": "たてる",
+    "meaning": "to stand up; to set up",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "空ける",
+    "reading": "あける",
+    "meaning": "to open; to make time for",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "処分する",
+    "reading": "しょぶんする",
+    "meaning": "to dispose; to throw away",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "でっち上げる",
+    "reading": "でっちあげる",
+    "meaning": "to fabricate; to make up",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "取り消す",
+    "reading": "とりけす",
+    "meaning": "to",
+    "type": "godan"
+  },
+  {
+    "dictionary": "囲む",
+    "reading": "かこむ",
+    "meaning": "to surround",
+    "type": "godan"
+  },
+  {
+    "dictionary": "割愛する",
+    "reading": "かつあいする",
+    "meaning": "to omit; to give up",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "訴える",
+    "reading": "うったえる",
+    "meaning": "to appeal to reason/emotions",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "把握する",
+    "reading": "はあくする",
+    "meaning": "to understand",
+    "type": "irregular"
+  },
+  {
+    "dictionary": "満ちる",
+    "reading": "みちる",
+    "meaning": "to be filled with",
+    "type": "ichidan"
+  },
+  {
+    "dictionary": "背負う",
+    "reading": "せおう",
+    "meaning": "to take responsibility for",
+    "type": "godan"
+  },
+  {
+    "dictionary": "叩く",
+    "reading": "たたく",
+    "meaning": "to hit; to beat",
+    "type": "godan"
+  },
+  {
+    "dictionary": "寄り添う",
+    "reading": "よりそう",
+    "meaning": "to get close",
+    "type": "godan"
+  },
+  {
+    "dictionary": "脱ぐ",
+    "reading": "ぬぐ",
+    "meaning": "to take off",
+    "type": "godan"
+  },
+  {
+    "dictionary": "貯める",
+    "reading": "ためる",
+    "meaning": "to save",
+    "type": "godan"
+  },
+  {
+    "dictionary": "稼ぐ",
+    "reading": "かせぐ",
+    "meaning": "to earn",
+    "type": "godan"
+  },
+  {
+    "dictionary": "増やす",
+    "reading": "ふやす",
+    "meaning": "to earn",
+    "type": "godan"
+  },
+  {
+    "dictionary": "戦う",
+    "reading": "たたかう",
+    "meaning": "to earn",
+    "type": "godan"
+  },
+  {
+    "dictionary": "満たす",
+    "reading": "みたす",
+    "meaning": "to earn",
+    "type": "godan"
+  },
+  {
+    "dictionary": "下しする",
+    "reading": "くだしする",
+    "meaning": "to earn",
+    "type": "godan"
+  },
+  {
+    "dictionary": "動く",
+    "reading": "うごく",
+    "meaning": "to earn",
+    "type": "godan"
+  }
 ]
-
-
